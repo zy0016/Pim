@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MEdrv - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\llan\LOCALS~1\Temp\RSP50.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /X /I "../../include" /I "../../include20" /I "../../include20/ddi" /I "../../include/project" /I "../../include/me" /I "../../include/window" /I "../../include/image" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_EMULATE_" /D "_TCPIPMEMDEB_" /D "_TCPIPX86_" /D "_TCPIPASSERT_" /D "LITTLE_ENDIAN" /D "_IP_DWBROADCAST_" /D "_TCPIP_BULID_VC_" /D "_TCPIP_NOUI_" /D "TCPIP_SINGELMODUL" /D "_KERN200" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\project\Benefon\src\medrv\me_at.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\llan\LOCALS~1\Temp\RSP50.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\lib\MEdrv.lib"  .\Debug\cbspdu.obj .\Debug\me_at.obj .\Debug\me_comn.obj .\Debug\me_func.obj .\Debug\me_init.obj .\Debug\me_wnd.obj .\Debug\smspdu.obj "
+<h3>Output Window</h3>
+Compiling...
+me_at.c
+d:\project\benefon\src\medrv\me_at.c(110) : warning C4013: 'MsgOut' undefined; assuming extern returning int
+d:\project\benefon\src\medrv\me_at.c(115) : warning C4013: 'BUF_PutData' undefined; assuming extern returning int
+d:\project\benefon\src\medrv\me_at.c(121) : warning C4013: 'BUF_GetData' undefined; assuming extern returning int
+d:\project\benefon\src\medrv\me_at.c(275) : warning C4013: 'BUF_Cleanup' undefined; assuming extern returning int
+Creating library...
+
+
+
+<h3>Results</h3>
+MEdrv.lib - 0 error(s), 4 warning(s)
+</pre>
+</body>
+</html>

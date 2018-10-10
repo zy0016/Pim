@@ -1,0 +1,54 @@
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+me_func.c:
+  1387: 				if ( strstr( data, "+CCWA:") == data && ME_MemGetOffset() == 0 )
+W  91: no prototype for function "ME_MemGetOffset"
+  4009: 			temp = ME_MemGetPntr();
+W  91: no prototype for function "ME_MemGetPntr"
+W 178: static function "ASCIIstr2GSMstr" not used
+W 178: static function "Byte2Str" not used
+W 178: static function "BinStr2String" not used
+total errors: 0, warnings: 5
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+me_comn.c:
+   124: {
+W  91: no prototype for function "ME_MemGetPntr"
+   136: {
+W  91: no prototype for function "ME_MemGetOffset"
+W 178: static function "ASCIIstr2GSMstr" not used
+W 178: static function "Byte2Str" not used
+W 178: static function "BinStr2String" not used
+total errors: 0, warnings: 5
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 C compiler    v7.5r5 Build 519.1.2
+Copyright 1991-2002 Altium BV   Serial# ????????
+smspdu.c:
+   455: {
+W  88: "BinStr2String" redeclared with different linkage
+   479: {
+W  88: "Byte2Str" redeclared with different linkage
+   512: {
+W  88: "ASCIIstr2GSMstr" redeclared with different linkage
+   807: }
+W 183: variable 'b1' possibly uninitialized
+total errors: 0, warnings: 4
+TASKING C166/ST10 assembler     v7.5r5 Build 234.1.1
+Copyright 1991-2002 Altium BV   Serial# ????????
+TASKING C166/ST10 archiver      v7.5r5 Build 032
+Copyright 1993-2002 Altium BV   Serial# ????????

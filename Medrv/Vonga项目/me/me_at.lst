@@ -1,0 +1,2059 @@
+ LOC CODE        LINE   SOURCELINE
+
+                     1   ; TASKING C166/ST10 C compiler v7.5r5 Build 519.1.2 SN ????????
+                     2   ; options: -c -g -AF -Be -xmfp -e -s -Ml -znocustack -OaBcdEFghjkLnopQrStUwX -T0
+                     3   ;          -w68 -w130 -w150 -w200 -w196 -D_DEBUG -BZc166sv1sp -BZc166sv1cp
+                     4   ;          -BZc166sv1sp2 -BZcpu_reti_int -BZc166sv1ext -BK -BZno_cpu_jmpra_cache
+                     5   ;          -BM -BZc166sv1div -DPRJ_UW_LOG -mPR=0,4000 -I./include -I.
+                     6   ;          -Id:/vme_new/vmesdk/include -D_C166_ARCH=1 -D_DEBUG -I -I.
+                     7   $DEBUG
+                     8   $NOLOCALS
+                     9   $EXTEND
+                    10   $NOMOD166
+                    11   $STDNAMES(reg.def)
+                    12   $SEGMENTED
+                    13   $CASE
+                    14   $MODEL(LARGE)
+                    15   $CHECKMULDIV
+                    16   $CHECKCPU21
+                    17   $CHECKC166SV1SP
+                    18   $CHECKC166SV1CP
+                    19   $CHECKC166SV1DIV
+                    20   $CHECKC166SV1EXTSEQ
+                    21   $CHECKC166SV1SP2
+                    22   $CHECKCPURETIINT
+                    23           NAME    ME_AT_C
+                    24           ASSUME  DPP3:SYSTEM
+                    25           ASSUME  DPP2:C166_DGROUP
+                    26           ?SYMB   'me_at.c',32,80,16
+                    27           ?SYMB   '',1,82,0
+                    28           ?SYMB   '80166',0,84,0
+                    29           ?SYMB   '',0,81,0
+                    30           ?SYMB   'void',00H,45,1
+                    31           ?SYMB   'char',080000H,45,2
+                    32           ?SYMB   'unsigned char',080000H,45,3
+                    33           ?SYMB   'short',0100000H,45,4
+                    34           ?SYMB   'unsigned short',0100000H,45,5
+                    35           ?SYMB   'long',0200000H,45,6
+                    36           ?SYMB   'unsigned long',0200000H,45,7
+                    37           ?SYMB   'float',0200000H,45,10
+                    38           ?SYMB   'double',0400000H,45,11
+                    39           ?SYMB   'int',0100000H,45,16
+                    40           ?SYMB   'unsigned int',0100000H,45,18
+                    41           ?SYMB   'bit',010000H,7,256
+                    42           ?SYMB   'me_at.c',0,29,1
+                    43           ?SYMB   '',0,86,1
+                    44   ; me_at.c     1 //#include "..\tcpip\include\tilib.h"
+                    45   ; me_at.c     2 #include "stdlib.h"
+                    46           ?SYMB   './include\stdlib.h',0,29,2
+                    47           ?SYMB   '',0,86,2
+                    48           ?SYMB   'size_t',18,13,257
+                    49           ?SYMB   'T$1',0,40,258
+                    50           ?SYMB   'rem',0,23,16
+                    51           ?SYMB   'quot',16,23,16
+                    52           ?SYMB   '',32,18,0
+                    53           ?SYMB   'div_t',258,13,259
+                    54           ?SYMB   'T$2',0,40,260
+                    55           ?SYMB   'rem',0,23,6
+                    56           ?SYMB   'quot',32,23,6
+                    57           ?SYMB   '',64,18,0
+                    58           ?SYMB   'ldiv_t',260,13,261
+                    59           ?SYMB   '',0,86,1
+                    60   ; me_at.c     3 #include "me_at.h"
+                    61           ?SYMB   'me_at.h',0,29,2
+                    62           ?SYMB   '',0,86,2
+                    63           ?SYMB   '',1,55,262
+                    64           ?SYMB   '',0a0106H,38,264
+                    65           ?SYMB   'MAT_Indication',264,13,265
+                    66           ?SYMB   '',0,86,1
+                    67   ; me_at.c     4 #include "window.h"
+                    68           ?SYMB   './include\window.h',0,29,2
+                    69           ?SYMB   '',0,86,2
+                    70           ?SYMB   './include\hpdef.h',0,29,3
+                    71           ?SYMB   '',0,86,3
+                    72           ?SYMB   'BOOL',16,13,266
+                    73           ?SYMB   'BYTE',3,13,267
+                    74           ?SYMB   'WORD',5,13,268
+                    75           ?SYMB   'IWORD',4,13,269
+                    76           ?SYMB   'SHORT',4,13,270
+                    77           ?SYMB   'UINT',18,13,271
+                    78           ?SYMB   'DWORD',7,13,272
+                    79           ?SYMB   '',01a0002H,38,274
+                    80           ?SYMB   'LPSTR',274,13,275
+                    81           ?SYMB   '',01a0001H,38,277
+                    82           ?SYMB   'HANDLE',277,13,278
+                    83           ?SYMB   '',0,86,2
+                    84           ?SYMB   './include\hp_diag.h',0,29,3
+                    85           ?SYMB   '',0,86,3
+                    86           ?SYMB   '',0,86,2
+                    87           ?SYMB   './include\hp_kern.h',0,29,3
+                    88           ?SYMB   '',0,86,3
+                    89           ?SYMB   './include\hpdef.h',0,29,4
+                    90           ?SYMB   '',0,86,4
+                    91           ?SYMB   '',0,86,3
+                    92           ?SYMB   'tid_t',16,13,279
+                    93           ?SYMB   'pid_t',16,13,280
+                    94           ?SYMB   'm_mutex',0,40,281
+                    95           ?SYMB   'm_lock',0,23,16
+                    96           ?SYMB   'm_wait',16,23,16
+                    97           ?SYMB   'm_taskid',32,23,4
+                    98           ?SYMB   'm_count',48,23,4
+                    99           ?SYMB   'm_flag',64,23,4
+                   100           ?SYMB   'm_unused',80,23,4
+                   101           ?SYMB   '',96,18,0
+                   102           ?SYMB   '',01a0119H,38,283
+                   103           ?SYMB   'PMUTEX',283,13,284
+                   104           ?SYMB   'OSHANDLE',277,13,285
+                   105           ?SYMB   'sysclock_t',7,13,286
+                   106           ?SYMB   'HGLOBAL',277,13,287
+                   107           ?SYMB   'T$3',0,40,288
+                   108           ?SYMB   'StartAddr',0,23,7
+                   109           ?SYMB   'initSize',32,23,7
+                   110           ?SYMB   'FreeSize',64,23,7
+                   111           ?SYMB   '',96,18,0
+                   112           ?SYMB   'HeapInfo',288,13,289
+                   113           ?SYMB   'HLOCAL',277,13,290
+                   114           ?SYMB   '',0,86,2
+                   115           ?SYMB   'LONG',6,13,291
+                   116           ?SYMB   'HINSTANCE__',0,40,292
+                   117           ?SYMB   'unused',0,23,16
+                   118           ?SYMB   '',16,18,0
+                   119           ?SYMB   '',01a0124H,38,294
+                   120           ?SYMB   'HINSTANCE',294,13,295
+                   121           ?SYMB   '_SYSTEMTIME',0,40,296
+                   122           ?SYMB   'wYear',0,23,268
+                   123           ?SYMB   'wMonth',16,23,268
+                   124           ?SYMB   'wDayOfWeek',32,23,268
+                   125           ?SYMB   'wDay',48,23,268
+                   126           ?SYMB   'wHour',64,23,268
+                   127           ?SYMB   'wMinute',80,23,268
+                   128           ?SYMB   'wSecond',96,23,268
+                   129           ?SYMB   'wMilliseconds',112,23,268
+                   130           ?SYMB   '',128,18,0
+                   131           ?SYMB   '',01a0128H,38,298
+                   132           ?SYMB   'PSYSTEMTIME',298,13,299
+                   133           ?SYMB   'SYSTEMTIME',296,13,300
+                   134           ?SYMB   '',012e0002H,5,301
+                   135           ?SYMB   '',16,47,302
+                   136           ?SYMB   '',0,30,0
+                   137           ?SYMB   '',31,49,0
+                   138           ?SYMB   '_TIME_ZONE_INFORMATION',0,40,303
+                   139           ?SYMB   'Bias',0,23,291
+                   140           ?SYMB   'StandardName',32,23,301
+                   141           ?SYMB   'StandardDate',288,23,300
+                   142           ?SYMB   'StandardBias',416,23,291
+                   143           ?SYMB   'DaylightName',448,23,301
+                   144           ?SYMB   'DaylightDate',704,23,300
+                   145           ?SYMB   'DaylightBias',832,23,291
+                   146           ?SYMB   '',864,18,0
+                   147           ?SYMB   '',01a012fH,38,305
+                   148           ?SYMB   'PTIME_ZONE_INFORMATION',305,13,306
+                   149           ?SYMB   'TIME_ZONE_INFORMATION',303,13,307
+                   150           ?SYMB   'PCSTR',274,13,308
+                   151           ?SYMB   'HRSRC__',0,40,309
+                   152           ?SYMB   'unused',0,23,16
+                   153           ?SYMB   '',16,18,0
+                   154           ?SYMB   '',01a0135H,38,311
+                   155           ?SYMB   'HRSRC',311,13,312
+                   156           ?SYMB   'PSTR',274,13,313
+                   157           ?SYMB   'WCHAR',5,13,314
+                   158           ?SYMB   'LPCSTR',274,13,315
+                   159           ?SYMB   '',01a013aH,38,317
+                   160           ?SYMB   'LPWSTR',317,13,318
+                   161           ?SYMB   'LPCWSTR',317,13,319
+                   162           ?SYMB   '',01a010aH,38,321
+                   163           ?SYMB   'LPBOOL',321,13,322
+                   164           ?SYMB   'COLORREF',272,13,323
+                   165           ?SYMB   'LPCTSTR',275,13,324
+                   166           ?SYMB   'HDC__',0,40,325
+                   167           ?SYMB   'unused',0,23,16
+                   168           ?SYMB   '',16,18,0
+                   169           ?SYMB   '',01a0145H,38,327
+                   170           ?SYMB   'HDC',327,13,328
+                   171           ?SYMB   'T$4',0,40,329
+                   172           ?SYMB   'cbSize',0,23,16
+                   173           ?SYMB   'lpszDocName',16,23,315
+                   174           ?SYMB   'lpszOutput',48,23,315
+                   175           ?SYMB   'lpszDatatype',80,23,315
+                   176           ?SYMB   'fwType',112,23,272
+                   177           ?SYMB   '',144,18,0
+                   178           ?SYMB   'DOCINFO',329,13,330
+                   179           ?SYMB   'tagRECT',0,40,331
+                   180           ?SYMB   'left',0,23,291
+                   181           ?SYMB   'top',32,23,291
+                   182           ?SYMB   'right',64,23,291
+                   183           ?SYMB   'bottom',96,23,291
+                   184           ?SYMB   '',128,18,0
+                   185           ?SYMB   '',01a014bH,38,333
+                   186           ?SYMB   'PRECT',333,13,334
+                   187           ?SYMB   'tagPOINT',0,40,335
+                   188           ?SYMB   'x',0,23,291
+                   189           ?SYMB   'y',32,23,291
+                   190           ?SYMB   '',64,18,0
+                   191           ?SYMB   '',01a014fH,38,337
+                   192           ?SYMB   'PPOINT',337,13,338
+                   193           ?SYMB   'tagSIZE',0,40,339
+                   194           ?SYMB   'cx',0,23,291
+                   195           ?SYMB   'cy',32,23,291
+                   196           ?SYMB   '',64,18,0
+                   197           ?SYMB   '',01a0153H,38,341
+                   198           ?SYMB   'PSIZE',341,13,342
+                   199           ?SYMB   'RECT',331,13,343
+                   200           ?SYMB   'HGDIOBJ',277,13,344
+                   201           ?SYMB   'HPEN__',0,40,345
+                   202           ?SYMB   'unused',0,23,16
+                   203           ?SYMB   '',16,18,0
+                   204           ?SYMB   '',01a0159H,38,347
+                   205           ?SYMB   'HPEN',347,13,348
+                   206           ?SYMB   'POINT',335,13,349
+                   207           ?SYMB   'tagLOGPEN',0,40,350
+                   208           ?SYMB   'lopnStyle',0,23,271
+                   209           ?SYMB   'lopnWidth',16,23,349
+                   210           ?SYMB   'lopnColor',80,23,323
+                   211           ?SYMB   '',112,18,0
+                   212           ?SYMB   'LOGPEN',350,13,351
+                   213           ?SYMB   'HBRUSH__',0,40,352
+                   214           ?SYMB   'unused',0,23,16
+                   215           ?SYMB   '',16,18,0
+                   216           ?SYMB   '',01a0160H,38,354
+                   217           ?SYMB   'HBRUSH',354,13,355
+                   218           ?SYMB   'tagLOGBRUSH',0,40,356
+                   219           ?SYMB   'lbStyle',0,23,271
+                   220           ?SYMB   'lbColor',16,23,323
+                   221           ?SYMB   'lbHatch',48,23,291
+                   222           ?SYMB   '',80,18,0
+                   223           ?SYMB   'LOGBRUSH',356,13,357
+                   224           ?SYMB   'PATTERN',357,13,358
+                   225           ?SYMB   'HBITMAP__',0,40,359
+                   226           ?SYMB   'unused',0,23,16
+                   227           ?SYMB   '',16,18,0
+                   228           ?SYMB   '',01a0167H,38,361
+                   229           ?SYMB   'HBITMAP',361,13,362
+                   230           ?SYMB   'HRGN__',0,40,363
+                   231           ?SYMB   'unused',0,23,16
+                   232           ?SYMB   '',16,18,0
+                   233           ?SYMB   '',01a016bH,38,365
+                   234           ?SYMB   'HRGN',365,13,366
+                   235           ?SYMB   'HFONT__',0,40,367
+                   236           ?SYMB   'unused',0,23,16
+                   237           ?SYMB   '',16,18,0
+                   238           ?SYMB   '',01a016fH,38,369
+                   239           ?SYMB   'HFONT',369,13,370
+                   240           ?SYMB   'tagLOGFONT',0,40,371
+                   241           ?SYMB   'lfHeight',0,23,291
+                   242           ?SYMB   'lfWidth',32,23,291
+                   243           ?SYMB   'lfEscapement',64,23,291
+                   244           ?SYMB   'lfOrientation',96,23,291
+                   245           ?SYMB   'lfWeight',128,23,291
+                   246           ?SYMB   'lfItalic',160,23,267
+                   247           ?SYMB   'lfUnderline',168,23,267
+                   248           ?SYMB   'lfStrikeOut',176,23,267
+                   249           ?SYMB   'lfCharSet',184,23,267
+                   250           ?SYMB   'lfOutPrecision',192,23,267
+                   251           ?SYMB   'lfClipPrecision',200,23,267
+                   252           ?SYMB   'lfQuality',208,23,267
+                   253           ?SYMB   'lfPitchAndFamily',216,23,267
+                   254           ?SYMB   'lfFaceName',224,23,301
+                   255           ?SYMB   '',480,18,0
+                   256           ?SYMB   'LOGFONT',371,13,372
+                   257           ?SYMB   'tagTEXTMETRIC',0,40,373
+                   258           ?SYMB   'tmHeight',0,23,291
+                   259           ?SYMB   'tmAscent',32,23,291
+                   260           ?SYMB   'tmDescent',64,23,291
+                   261           ?SYMB   'tmInternalLeading',96,23,291
+                   262           ?SYMB   'tmExternalLeading',128,23,291
+                   263           ?SYMB   'tmAveCharWidth',160,23,291
+                   264           ?SYMB   'tmMaxCharWidth',192,23,291
+                   265           ?SYMB   'tmWeight',224,23,291
+                   266           ?SYMB   'tmOverhang',256,23,291
+                   267           ?SYMB   'tmDigitizedAspectX',288,23,291
+                   268           ?SYMB   'tmDigitizedAspectY',320,23,291
+                   269           ?SYMB   'tmFirstChar',352,23,267
+                   270           ?SYMB   'tmLastChar',360,23,267
+                   271           ?SYMB   'tmDefaultChar',368,23,267
+                   272           ?SYMB   'tmBreakChar',376,23,267
+                   273           ?SYMB   'tmItalic',384,23,267
+                   274           ?SYMB   'tmUnderlined',392,23,267
+                   275           ?SYMB   'tmStruckOut',400,23,267
+                   276           ?SYMB   'tmPitchAndFamily',408,23,267
+                   277           ?SYMB   'tmCharSet',416,23,267
+                   278           ?SYMB   '',432,18,0
+                   279           ?SYMB   '',01a0175H,38,375
+                   280           ?SYMB   'PTEXTMETRIC',375,13,376
+                   281           ?SYMB   'tagBITMAPINFOHEADER',0,40,377
+                   282           ?SYMB   'biSize',0,23,272
+                   283           ?SYMB   'biWidth',32,23,291
+                   284           ?SYMB   'biHeight',64,23,291
+                   285           ?SYMB   'biPlanes',96,23,268
+                   286           ?SYMB   'biBitCount',112,23,268
+                   287           ?SYMB   'biCompression',128,23,272
+                   288           ?SYMB   'biSizeImage',160,23,272
+                   289           ?SYMB   'biXPelsPerMeter',192,23,291
+                   290           ?SYMB   'biYPelsPerMeter',224,23,291
+                   291           ?SYMB   'biClrUsed',256,23,272
+                   292           ?SYMB   'biClrImportant',288,23,272
+                   293           ?SYMB   '',320,18,0
+                   294           ?SYMB   'BITMAPINFOHEADER',377,13,378
+                   295           ?SYMB   'tagRGBQUAD',0,40,379
+                   296           ?SYMB   'rgbBlue',0,23,267
+                   297           ?SYMB   'rgbGreen',8,23,267
+                   298           ?SYMB   'rgbRed',16,23,267
+                   299           ?SYMB   'rgbReserved',24,23,267
+                   300           ?SYMB   '',32,18,0
+                   301           ?SYMB   'RGBQUAD',379,13,380
+                   302           ?SYMB   'tagBITMAPCOREHEADER',0,40,381
+                   303           ?SYMB   'bcSize',0,23,272
+                   304           ?SYMB   'bcWidth',32,23,4
+                   305           ?SYMB   'bcHeight',48,23,4
+                   306           ?SYMB   'bcPlanes',64,23,268
+                   307           ?SYMB   'bcBitCount',80,23,268
+                   308           ?SYMB   '',96,18,0
+                   309           ?SYMB   'BITMAPCOREHEADER',381,13,382
+                   310           ?SYMB   'tagRGBTRIPLE',0,40,383
+                   311           ?SYMB   'rgbtBlue',0,23,267
+                   312           ?SYMB   'rgbtGreen',8,23,267
+                   313           ?SYMB   'rgbtRed',16,23,267
+                   314           ?SYMB   '',32,18,0
+                   315           ?SYMB   'RGBTRIPLE',383,13,384
+                   316           ?SYMB   'tagBITMAP',0,40,385
+                   317           ?SYMB   'bmType',0,23,291
+                   318           ?SYMB   'bmWidth',32,23,291
+                   319           ?SYMB   'bmHeight',64,23,291
+                   320           ?SYMB   'bmWidthBytes',96,23,291
+                   321           ?SYMB   'bmPlanes',128,23,268
+                   322           ?SYMB   'bmBitsPixel',144,23,268
+                   323           ?SYMB   'bmBits',160,23,277
+                   324           ?SYMB   '',192,18,0
+                   325           ?SYMB   'BITMAP',385,13,386
+                   326           ?SYMB   '',0184017cH,5,387
+                   327           ?SYMB   '',16,47,388
+                   328           ?SYMB   '',0,30,0
+                   329           ?SYMB   '',0,49,0
+                   330           ?SYMB   'tagBITMAPINFO',0,40,389
+                   331           ?SYMB   'bmiHeader',0,23,378
+                   332           ?SYMB   'bmiColors',320,23,387
+                   333           ?SYMB   '',352,18,0
+                   334           ?SYMB   'BITMAPINFO',389,13,390
+                   335           ?SYMB   'PVOID',277,13,391
+                   336           ?SYMB   '',01a0185H,38,393
+                   337           ?SYMB   'PBITMAPINFO',393,13,394
+                   338           ?SYMB   'HICON__',0,40,395
+                   339           ?SYMB   'unused',0,23,16
+                   340           ?SYMB   '',16,18,0
+                   341           ?SYMB   '',01a018bH,38,397
+                   342           ?SYMB   'HICON',397,13,398
+                   343           ?SYMB   'HWND__',0,40,399
+                   344           ?SYMB   'unused',0,23,16
+                   345           ?SYMB   '',16,18,0
+                   346           ?SYMB   '',01a018fH,38,401
+                   347           ?SYMB   'HWND',401,13,402
+                   348           ?SYMB   'WPARAM',291,13,403
+                   349           ?SYMB   'LPARAM',291,13,404
+                   350           ?SYMB   'tagMSG',0,40,405
+                   351           ?SYMB   'hwnd',0,23,402
+                   352           ?SYMB   'message',32,23,271
+                   353           ?SYMB   'wParam',48,23,403
+                   354           ?SYMB   'lParam',80,23,404
+                   355           ?SYMB   '',112,18,0
+                   356           ?SYMB   '',01a0195H,38,407
+                   357           ?SYMB   'PMSG',407,13,408
+                   358           ?SYMB   'LRESULT',291,13,409
+                   359           ?SYMB   'MSG',405,13,410
+                   360           ?SYMB   '',409,55,411
+                   361           ?SYMB   '',0a019bH,38,413
+                   362           ?SYMB   'WNDPROC',413,13,414
+                   363           ?SYMB   'HCURSOR',398,13,415
+                   364           ?SYMB   'tagWNDCLASS',0,40,416
+                   365           ?SYMB   'style',0,23,271
+                   366           ?SYMB   'lpfnWndProc',16,23,414
+                   367           ?SYMB   'cbClsExtra',48,23,16
+                   368           ?SYMB   'cbWndExtra',64,23,16
+                   369           ?SYMB   'hInstance',80,23,295
+                   370           ?SYMB   'hIcon',112,23,398
+                   371           ?SYMB   'hCursor',144,23,415
+                   372           ?SYMB   'hbrBackground',176,23,355
+                   373           ?SYMB   'lpszMenuName',208,23,315
+                   374           ?SYMB   'lpszClassName',240,23,315
+                   375           ?SYMB   '',272,18,0
+                   376           ?SYMB   'WNDCLASS',416,13,417
+                   377           ?SYMB   'tagWNDCLASSEX',0,40,418
+                   378           ?SYMB   'cbSize',0,23,271
+                   379           ?SYMB   'style',16,23,271
+                   380           ?SYMB   'lpfnWndProc',32,23,414
+                   381           ?SYMB   'cbClsExtra',64,23,16
+                   382           ?SYMB   'cbWndExtra',80,23,16
+                   383           ?SYMB   'hInstance',96,23,295
+                   384           ?SYMB   'hIcon',128,23,398
+                   385           ?SYMB   'hCursor',160,23,415
+                   386           ?SYMB   'hbrBackground',192,23,355
+                   387           ?SYMB   'lpszMenuName',224,23,315
+                   388           ?SYMB   'lpszClassName',256,23,315
+                   389           ?SYMB   'hIconSm',288,23,398
+                   390           ?SYMB   '',320,18,0
+                   391           ?SYMB   'WNDCLASSEX',418,13,419
+                   392           ?SYMB   '',01a01a0H,38,421
+                   393           ?SYMB   'PWNDCLASS',421,13,422
+                   394           ?SYMB   'HMENU__',0,40,423
+                   395           ?SYMB   'unused',0,23,16
+                   396           ?SYMB   '',16,18,0
+                   397           ?SYMB   '',01a01a7H,38,425
+                   398           ?SYMB   'HMENU',425,13,426
+                   399           ?SYMB   '',266,55,427
+                   400           ?SYMB   '',0a01abH,38,429
+                   401           ?SYMB   'WNDENUMPROC',429,13,430
+                   402           ?SYMB   'tagPAINTSTRUCT',0,40,431
+                   403           ?SYMB   'hdc',0,23,328
+                   404           ?SYMB   'fErase',32,23,266
+                   405           ?SYMB   'rcPaint',48,23,343
+                   406           ?SYMB   '',176,18,0
+                   407           ?SYMB   '',01a01afH,38,433
+                   408           ?SYMB   'PPAINTSTRUCT',433,13,434
+                   409           ?SYMB   'PAINTSTRUCT',431,13,435
+                   410           ?SYMB   'tagWINDOWPOS',0,40,436
+                   411           ?SYMB   'hwnd',0,23,402
+                   412           ?SYMB   'hwndInsertAfter',32,23,402
+                   413           ?SYMB   'x',64,23,16
+                   414           ?SYMB   'y',80,23,16
+                   415           ?SYMB   'cx',96,23,16
+                   416           ?SYMB   'cy',112,23,16
+                   417           ?SYMB   'flags',128,23,271
+                   418           ?SYMB   '',144,18,0
+                   419           ?SYMB   '',01a01b4H,38,438
+                   420           ?SYMB   'PWINDOWPOS',438,13,439
+                   421           ?SYMB   './include\virtkey.h',0,29,3
+                   422           ?SYMB   '',0,86,3
+                   423           ?SYMB   '',0,86,2
+                   424           ?SYMB   '',01a010bH,38,441
+                   425           ?SYMB   'PBYTE',441,13,442
+                   426           ?SYMB   '',01a010cH,38,444
+                   427           ?SYMB   'LPWORD',444,13,445
+                   428           ?SYMB   '',1,55,446
+                   429           ?SYMB   '',0a01beH,38,448
+                   430           ?SYMB   'TIMERPROC',448,13,449
+                   431           ?SYMB   'MENUITEMTEMPLATE',450,13,451
+                   432           ?SYMB   '',01a01c3H,38,453
+                   433           ?SYMB   'PMENUITEMTEMPLATE',453,13,454
+                   434           ?SYMB   'tagMENUITEMTEMPLATE',0,40,450
+                   435           ?SYMB   'wFlags',0,23,268
+                   436           ?SYMB   'wID',16,23,268
+                   437           ?SYMB   'lpszItemName',32,23,308
+                   438           ?SYMB   'pMenuItems',64,23,454
+                   439           ?SYMB   '',96,18,0
+                   440           ?SYMB   'T$5',0,40,455
+                   441           ?SYMB   'version',0,23,272
+                   442           ?SYMB   'pMenuItems',32,23,454
+                   443           ?SYMB   '',64,18,0
+                   444           ?SYMB   'MENUTEMPLATE',455,13,456
+                   445           ?SYMB   'tagSCROLLINFO',0,40,457
+                   446           ?SYMB   'cbSize',0,23,271
+                   447           ?SYMB   'fMask',16,23,271
+                   448           ?SYMB   'nMin',32,23,16
+                   449           ?SYMB   'nMax',48,23,16
+                   450           ?SYMB   'nPage',64,23,271
+                   451           ?SYMB   'nPos',80,23,16
+                   452           ?SYMB   'nTrackPos',96,23,16
+                   453           ?SYMB   '',112,18,0
+                   454           ?SYMB   'SCROLLINFO',457,13,458
+                   455           ?SYMB   '',01a01caH,38,460
+                   456           ?SYMB   'PCSCROLLINFO',460,13,461
+                   457           ?SYMB   '',01a01c9H,38,463
+                   458           ?SYMB   'PSCROLLINFO',463,13,464
+                   459           ?SYMB   'T$6',0,40,465
+                   460           ?SYMB   'style',0,23,272
+                   461           ?SYMB   'dwExStyle',32,23,272
+                   462           ?SYMB   'x',64,23,4
+                   463           ?SYMB   'y',80,23,4
+                   464           ?SYMB   'cx',96,23,4
+                   465           ?SYMB   'cy',112,23,4
+                   466           ?SYMB   'id',128,23,272
+                   467           ?SYMB   'lpszClassName',160,23,308
+                   468           ?SYMB   'lpszWindowText',192,23,308
+                   469           ?SYMB   '',224,18,0
+                   470           ?SYMB   'DLGITEMTEMPLATE',465,13,466
+                   471           ?SYMB   '',01d401d2H,5,467
+                   472           ?SYMB   '',16,47,468
+                   473           ?SYMB   '',0,30,0
+                   474           ?SYMB   '',0,49,0
+                   475           ?SYMB   'T$7',0,40,469
+                   476           ?SYMB   'type',0,23,272
+                   477           ?SYMB   'style',32,23,272
+                   478           ?SYMB   'dwExStyle',64,23,272
+                   479           ?SYMB   'cdit',96,23,272
+                   480           ?SYMB   'x',128,23,4
+                   481           ?SYMB   'y',144,23,4
+                   482           ?SYMB   'cx',160,23,4
+                   483           ?SYMB   'cy',176,23,4
+                   484           ?SYMB   'lpszMenuName',192,23,308
+                   485           ?SYMB   'lpszClassName',224,23,308
+                   486           ?SYMB   'lpszWindowText',256,23,308
+                   487           ?SYMB   'dlgItems',288,23,467
+                   488           ?SYMB   '',512,18,0
+                   489           ?SYMB   'DLGTEMPLATE',469,13,470
+                   490           ?SYMB   '',266,55,471
+                   491           ?SYMB   '',0a01d7H,38,473
+                   492           ?SYMB   'DLGPROC',473,13,474
+                   493           ?SYMB   '',01a01d6H,38,476
+                   494           ?SYMB   'PCDLGTEMPLATE',476,13,477
+                   495           ?SYMB   'tagDRAWITEMSTRUCT',0,40,478
+                   496           ?SYMB   'CtlType',0,23,271
+                   497           ?SYMB   'CtlID',16,23,271
+                   498           ?SYMB   'itemID',32,23,271
+                   499           ?SYMB   'itemAction',48,23,271
+                   500           ?SYMB   'itemState',64,23,271
+                   501           ?SYMB   'hwndItem',80,23,402
+                   502           ?SYMB   'hDC',112,23,328
+                   503           ?SYMB   'rcItem',144,23,343
+                   504           ?SYMB   'itemData',272,23,272
+                   505           ?SYMB   '',304,18,0
+                   506           ?SYMB   'DRAWITEMSTRUCT',478,13,479
+                   507           ?SYMB   'tagMEASUREITEMSTRUCT',0,40,480
+                   508           ?SYMB   'CtlType',0,23,271
+                   509           ?SYMB   'CtlID',16,23,271
+                   510           ?SYMB   'itemID',32,23,271
+                   511           ?SYMB   'itemWidth',48,23,271
+                   512           ?SYMB   'itemHeight',64,23,271
+                   513           ?SYMB   'itemData',80,23,272
+                   514           ?SYMB   '',112,18,0
+                   515           ?SYMB   'MEASUREITEMSTRUCT',480,13,481
+                   516           ?SYMB   'tagDELETEITEMSTRUCT',0,40,482
+                   517           ?SYMB   'CtlType',0,23,271
+                   518           ?SYMB   'CtlID',16,23,271
+                   519           ?SYMB   'itemID',32,23,271
+                   520           ?SYMB   'hwndItem',48,23,402
+                   521           ?SYMB   'itemData',80,23,272
+                   522           ?SYMB   '',112,18,0
+                   523           ?SYMB   'DELETEITEMSTRUCT',482,13,483
+                   524           ?SYMB   'tagCOMPAREITEMSTRUCT',0,40,484
+                   525           ?SYMB   'CtlType',0,23,271
+                   526           ?SYMB   'CtlID',16,23,271
+                   527           ?SYMB   'hwndItem',32,23,402
+                   528           ?SYMB   'itemID1',64,23,271
+                   529           ?SYMB   'itemData1',80,23,272
+                   530           ?SYMB   'itemID2',112,23,271
+                   531           ?SYMB   'itemData2',128,23,272
+                   532           ?SYMB   '',160,18,0
+                   533           ?SYMB   'COMPAREITEMSTRUCT',484,13,485
+                   534           ?SYMB   '',409,55,486
+                   535           ?SYMB   '',0a01e6H,38,488
+                   536           ?SYMB   'HOOKPROC',488,13,489
+                   537           ?SYMB   'HHOOK__',0,40,490
+                   538           ?SYMB   'unused',0,23,16
+                   539           ?SYMB   '',16,18,0
+                   540           ?SYMB   '',01a01eaH,38,492
+                   541           ?SYMB   'HHOOK',492,13,493
+                   542           ?SYMB   '',01ef010bH,5,494
+                   543           ?SYMB   '',16,47,495
+                   544           ?SYMB   '',0,30,0
+                   545           ?SYMB   '',31,49,0
+                   546           ?SYMB   '_devicemode',0,40,496
+                   547           ?SYMB   'dmDeviceName',0,23,494
+                   548           ?SYMB   'dmSpecVersion',256,23,268
+                   549           ?SYMB   'dmDriverVersion',272,23,268
+                   550           ?SYMB   'dmSize',288,23,268
+                   551           ?SYMB   'dmDriverExtra',304,23,268
+                   552           ?SYMB   'dmFields',320,23,272
+                   553           ?SYMB   'dmOrientation',352,23,4
+                   554           ?SYMB   'dmPaperSize',368,23,4
+                   555           ?SYMB   'dmPaperLength',384,23,4
+                   556           ?SYMB   'dmPaperWidth',400,23,4
+                   557           ?SYMB   'dmScale',416,23,4
+                   558           ?SYMB   'dmCopies',432,23,4
+                   559           ?SYMB   'dmDefaultSource',448,23,4
+                   560           ?SYMB   'dmPrintQuality',464,23,4
+                   561           ?SYMB   'dmColor',480,23,4
+                   562           ?SYMB   'dmDuplex',496,23,4
+                   563           ?SYMB   'dmYResolution',512,23,4
+                   564           ?SYMB   'dmTTOption',528,23,4
+                   565           ?SYMB   'dmCollate',544,23,4
+                   566           ?SYMB   'dmFormName',560,23,494
+                   567           ?SYMB   'dmLogPixels',816,23,268
+                   568           ?SYMB   'dmBitsPerPel',832,23,272
+                   569           ?SYMB   'dmPelsWidth',864,23,272
+                   570           ?SYMB   'dmPelsHeight',896,23,272
+                   571           ?SYMB   'dmDisplayFlags',928,23,272
+                   572           ?SYMB   'dmDisplayFrequency',960,23,272
+                   573           ?SYMB   'dmICMMethod',992,23,272
+                   574           ?SYMB   'dmICMIntent',1024,23,272
+                   575           ?SYMB   'dmMediaType',1056,23,272
+                   576           ?SYMB   'dmDitherType',1088,23,272
+                   577           ?SYMB   'dmICCManufacturer',1120,23,272
+                   578           ?SYMB   'dmICCModel',1152,23,272
+                   579           ?SYMB   'dmPanningWidth',1184,23,272
+                   580           ?SYMB   'dmPanningHeight',1216,23,272
+                   581           ?SYMB   '',1248,18,0
+                   582           ?SYMB   '',01a01f0H,38,498
+                   583           ?SYMB   'PDEVMODE',498,13,499
+                   584           ?SYMB   '',0,86,1
+                   585   ; me_at.c     5 #include "me_func.h"
+                   586           ?SYMB   'me_func.h',0,29,2
+                   587           ?SYMB   '',0,86,2
+                   588           ?SYMB   '',1,55,500
+                   589           ?SYMB   '',0a01f4H,38,502
+                   590           ?SYMB   'ME_ReqCallback',502,13,503
+                   591           ?SYMB   '',1,55,504
+                   592           ?SYMB   '',0a01f8H,38,506
+                   593           ?SYMB   'ME_IndCallback',506,13,507
+                   594           ?SYMB   '',0,86,1
+                   595   ; me_at.c     6 #include "me_wnd.h"
+                   596           ?SYMB   './include\me_wnd.h',0,29,2
+                   597           ?SYMB   '',0,86,2
+                   598           ?SYMB   './include\hp_modcfg.h',0,29,3
+                   599           ?SYMB   '',0,86,3
+                   600           ?SYMB   '',0,86,2
+                   601           ?SYMB   '',01fd0002H,5,508
+                   602           ?SYMB   '',16,47,509
+                   603           ?SYMB   '',0,30,0
+                   604           ?SYMB   '',23,49,0
+                   605           ?SYMB   'tagCALL_FWD',0,40,510
+                   606           ?SYMB   'Reason',0,23,16
+                   607           ?SYMB   'bEnable',16,23,266
+                   608           ?SYMB   'PhoneNum',32,23,508
+                   609           ?SYMB   'Class',224,23,16
+                   610           ?SYMB   'Time',240,23,16
+                   611           ?SYMB   '',256,18,0
+                   612           ?SYMB   '',01a01feH,38,512
+                   613           ?SYMB   'PCALL_FWD',512,13,513
+                   614           ?SYMB   '',02030002H,5,514
+                   615           ?SYMB   '',16,47,515
+                   616           ?SYMB   '',0,30,0
+                   617           ?SYMB   '',163,49,0
+                   618           ?SYMB   'tagSMS_Send',0,40,516
+                   619           ?SYMB   'SCA',0,23,508
+                   620           ?SYMB   'Type',192,23,16
+                   621           ?SYMB   'ConLen',208,23,16
+                   622           ?SYMB   'Report',224,23,266
+                   623           ?SYMB   'ReplyPath',240,23,266
+                   624           ?SYMB   'PID',256,23,16
+                   625           ?SYMB   'VPvalue',272,23,16
+                   626           ?SYMB   'PhoneNum',288,23,508
+                   627           ?SYMB   'Context',480,23,514
+                   628           ?SYMB   '',1792,18,0
+                   629           ?SYMB   '',01a0204H,38,518
+                   630           ?SYMB   'PSMS_SEND',518,13,519
+                   631           ?SYMB   'tagIND_STATUS',0,40,520
+                   632           ?SYMB   'Mt',0,23,16
+                   633           ?SYMB   'Bm',16,23,16
+                   634           ?SYMB   'Ds',32,23,16
+                   635           ?SYMB   '',48,18,0
+                   636           ?SYMB   '',01a0208H,38,522
+                   637           ?SYMB   'PIND_STATUS',522,13,523
+                   638           ?SYMB   '',020d0002H,5,524
+                   639           ?SYMB   '',16,47,525
+                   640           ?SYMB   '',0,30,0
+                   641           ?SYMB   '',39,49,0
+                   642           ?SYMB   '',020f0002H,5,526
+                   643           ?SYMB   '',16,47,527
+                   644           ?SYMB   '',0,30,0
+                   645           ?SYMB   '',19,49,0
+                   646           ?SYMB   'tagCELL_BROADCAST',0,40,528
+                   647           ?SYMB   'mode',0,23,266
+                   648           ?SYMB   'ids',16,23,524
+                   649           ?SYMB   'code',336,23,526
+                   650           ?SYMB   '',496,18,0
+                   651           ?SYMB   '',01a0210H,38,530
+                   652           ?SYMB   'PCELL_BROADCAST',530,13,531
+                   653           ?SYMB   '',02150002H,5,532
+                   654           ?SYMB   '',16,47,533
+                   655           ?SYMB   '',0,30,0
+                   656           ?SYMB   '',15,49,0
+                   657           ?SYMB   'tagPHONEBOOK',0,40,534
+                   658           ?SYMB   'Index',0,23,16
+                   659           ?SYMB   'PhoneNum',16,23,508
+                   660           ?SYMB   'Text',208,23,532
+                   661           ?SYMB   '',336,18,0
+                   662           ?SYMB   '',01a0216H,38,536
+                   663           ?SYMB   'PPHONEBOOK',536,13,537
+                   664           ?SYMB   '',021b0002H,5,538
+                   665           ?SYMB   '',16,47,539
+                   666           ?SYMB   '',0,30,0
+                   667           ?SYMB   '',63,49,0
+                   668           ?SYMB   'tagSTK_PARAM',0,40,540
+                   669           ?SYMB   'cmd',0,23,538
+                   670           ?SYMB   'timeout',512,23,16
+                   671           ?SYMB   'line_count',528,23,16
+                   672           ?SYMB   'line_len',544,23,16
+                   673           ?SYMB   'revbuf',560,23,277
+                   674           ?SYMB   '',592,18,0
+                   675           ?SYMB   'STK_PARAM',540,13,541
+                   676           ?SYMB   '',0,86,1
+                   677   ; me_at.c     7 #include "string.h"
+                   678           ?SYMB   './include\string.h',0,29,2
+                   679           ?SYMB   '',0,86,2
+                   680           ?SYMB   '',0,86,1
+                   681   ; me_at.c     8 #include "vme.h"
+                   682           ?SYMB   'd:/vme_new/vmesdk/include\vme.h',0,29,2
+                   683           ?SYMB   '',0,86,2
+                   684           ?SYMB   'vUINT16',18,13,542
+                   685           ?SYMB   'vUINT8',3,13,543
+                   686           ?SYMB   'vUINT32',7,13,544
+                   687           ?SYMB   'vPVOID',277,13,545
+                   688           ?SYMB   'vT_EvtCode',542,13,546
+                   689           ?SYMB   'T$10',0,40,547
+                   690           ?SYMB   'Param1',0,23,543
+                   691           ?SYMB   'Param2',8,23,543
+                   692           ?SYMB   'Param3',16,23,543
+                   693           ?SYMB   'Param4',24,23,543
+                   694           ?SYMB   'Param5',32,23,543
+                   695           ?SYMB   'Param6',40,23,543
+                   696           ?SYMB   'Param7',48,23,543
+                   697           ?SYMB   'Param8',56,23,543
+                   698           ?SYMB   '',64,18,0
+                   699           ?SYMB   'T$11',0,40,548
+                   700           ?SYMB   'Param1',0,23,542
+                   701           ?SYMB   'Param2',16,23,542
+                   702           ?SYMB   'Param3',32,23,542
+                   703           ?SYMB   'Param4',48,23,542
+                   704           ?SYMB   '',64,18,0
+                   705           ?SYMB   'T$12',0,40,549
+                   706           ?SYMB   'Param1',0,23,544
+                   707           ?SYMB   'Param2',32,23,544
+                   708           ?SYMB   '',64,18,0
+                   709           ?SYMB   'T$9',0,59,550
+                   710           ?SYMB   'c',0,23,547
+                   711           ?SYMB   's',0,23,548
+                   712           ?SYMB   'w',0,23,549
+                   713           ?SYMB   'lpParam',0,23,545
+                   714           ?SYMB   'lParam',0,23,544
+                   715           ?SYMB   '',64,26,0
+                   716           ?SYMB   'vT_EvtParam',550,13,551
+                   717           ?SYMB   'd:/vme_new/vmesdk/include\vme_ver.h',0,29,3
+                   718           ?SYMB   '',0,86,3
+                   719           ?SYMB   '',0,86,2
+                   720           ?SYMB   'vCHAR',2,13,552
+                   721           ?SYMB   'vVOID',1,13,553
+                   722           ?SYMB   '',1,55,554
+                   723           ?SYMB   '',0a022aH,38,556
+                   724           ?SYMB   'vT_MainCallback',556,13,557
+                   725           ?SYMB   'vT_EvtSubCode',543,13,558
+                   726           ?SYMB   '',0,86,1
+                   727   ; me_at.c     9 #include "error.h"
+                   728           ?SYMB   'd:/vme_new/vmesdk/include\error.h',0,29,2
+                   729           ?SYMB   '',0,86,2
+                   730           ?SYMB   'vT_StatusCode',544,13,559
+                   731           ?SYMB   '',0,86,1
+                   732   ; me_at.c    10 #include "vatc.h"
+                   733           ?SYMB   'd:/vme_new/vmesdk/include\vatc.h',0,29,2
+                   734           ?SYMB   '',0,86,2
+                   735           ?SYMB   'vINT16',16,13,560
+                   736           ?SYMB   'T$15',0,14,561
+                   737           ?SYMB   'eVATC_ATC1',0,33,561
+                   738           ?SYMB   'eVATC_ATC2',1,33,561
+                   739           ?SYMB   'eVATC_ATC3',2,33,561
+                   740           ?SYMB   '',16,16,0
+                   741           ?SYMB   'VME_VATC_CHAN',561,13,562
+                   742           ?SYMB   'VME_VATCCHANID',560,13,563
+                   743           ?SYMB   '',01a0003H,38,565
+                   744           ?SYMB   'vPDATA',565,13,566
+                   745           ?SYMB   '',010000H,7,567
+                   746           ?SYMB   '',010001H,7,568
+                   747           ?SYMB   'T$16',0,40,569
+                   748           ?SYMB   'RI',0,23,567
+                   749           ?SYMB   'CD',1,23,568
+                   750           ?SYMB   '',16,18,0
+                   751           ?SYMB   'VME_VATCSTATUS',569,13,570
+                   752           ?SYMB   '',0,86,1
+                   753   ; me_at.c    11 
+                   754   ; me_at.c    12 #define RD_BUFSIZE              4096
+                   755   ; me_at.c    13 #define WR_BUFSIZE              4096
+                   756   ; me_at.c    14 VME_VATCCHANID com_fd;
+                   757   ME_AT_1_FB      SECTION DATA WORD PUBLIC 'CFAR'
+0000               758   ME_AT_1_FB_ENTRY        LABEL   BYTE
+0000               759   _com_fd LABEL   WORD
+0000               760           DS      2
+                   761           PUBLIC  _com_fd
+               R   762           ?SYMB   'com_fd',_com_fd,22,563
+                   763   ; me_at.c    15 
+                   764   ; me_at.c    16 
+                   765   ; me_at.c    17 struct com_inbuf
+                   766   ; me_at.c    18 {
+                   767   ; me_at.c    19         char* base;
+                   768   ; me_at.c    20         int       head;
+                   769   ; me_at.c    21         int       tail;
+                   770   ; me_at.c    22         int       datalen;
+                   771   ; me_at.c    23 };
+                   772   ; me_at.c    24 
+                   773   ; me_at.c    25 struct com_inbuf RdBuffer;
+0002               774   _RdBuffer       LABEL   WORD
+0002               775           DS      10
+                   776           PUBLIC  _RdBuffer
+                   777           ?SYMB   'com_inbuf',0,40,571
+                   778           ?SYMB   'base',0,23,274
+                   779           ?SYMB   'head',32,23,16
+                   780           ?SYMB   'tail',48,23,16
+                   781           ?SYMB   'datalen',64,23,16
+                   782           ?SYMB   '',80,18,0
+               R   783           ?SYMB   'RdBuffer',_RdBuffer,22,571
+                   784   ; me_at.c    26 char* WrBuffer;
+000C               785   _WrBuffer       LABEL   WORD
+000C               786           DS      4
+                   787           PUBLIC  _WrBuffer
+               R   788           ?SYMB   'WrBuffer',_WrBuffer,22,274
+                   789   ; me_at.c    27 BOOL bDataAvailToSend = 0;//FALSE;
+                   790   ME_AT_1_FB      ENDS
+                   791   
+                   792   ME_AT_IR_NB     SECTION DATA WORD PUBLIC 'CINITROM'
+0000               793   ME_AT_IR_NB_ENTRY       LABEL   BYTE
+0000 0000          794           DW      00h
+                   795   ME_AT_IR_NB     ENDS
+                   796   
+                   797   ME_AT_ID_NB     SECTION DATA WORD PUBLIC 'CNEAR'
+0000               798   ME_AT_ID_NB_ENTRY       LABEL   BYTE
+0000               799   _bDataAvailToSend       LABEL   WORD
+0000               800           DS      2
+                   801           PUBLIC  _bDataAvailToSend
+               R   802           ?SYMB   'bDataAvailToSend',_bDataAvailToSend,22,266
+                   803   ; me_at.c    28 char* SendPtr;
+                   804   ME_AT_ID_NB     ENDS
+                   805   
+                   806   ME_AT_1_FB      SECTION DATA
+0010               807   _SendPtr        LABEL   WORD
+0010               808           DS      4
+                   809           PUBLIC  _SendPtr
+               R   810           ?SYMB   'SendPtr',_SendPtr,22,274
+                   811   ; me_at.c    29 int   toSend;
+0014               812   _toSend LABEL   WORD
+0014               813           DS      2
+                   814           PUBLIC  _toSend
+               R   815           ?SYMB   'toSend',_toSend,22,16
+                   816   ; me_at.c    30 
+                   817   ; me_at.c    31 extern HWND ME_hWnd;
+                   818   ; me_at.c    32 static MAT_Indication mat_indication;
+0016               819   _mat_indication LABEL   WORD
+0016               820           DS      4
+               R   821           ?SYMB   'mat_indication',_mat_indication,31,265
+                   822   ; me_at.c    33 extern void debugex_nonl(char *fmt, ...);
+                   823   ; me_at.c    34 
+                   824   ; me_at.c    35 vVOID vProcessVATC_Events(vT_EvtCode Event, vINT8 ChanId);
+                   825           ?SYMB   'vINT8',2,13,572
+                   826   ; me_at.c    36 int Handle_vatcWrite( VME_VATCCHANID ChanId );
+                   827   ; me_at.c    37 int Handle_vatcRead ( VME_VATCCHANID ChanId );
+                   828   ; me_at.c    38 
+                   829   ; me_at.c    39 #define EVENT_DATAIN    1
+                   830   ; me_at.c    40 #define EVENT_DATAOUT   2
+                   831   ; me_at.c    41 #define EVENT_MODEM             3
+                   832   ; me_at.c    42 
+                   833   ; me_at.c    43 int MAT_Callback( int datalen )
+                   834   ; me_at.c    44 {
+                   835   ME_AT_1_FB      ENDS
+                   836   
+                   837   ME_AT_4_PR      SECTION CODE WORD PUBLIC 'CPROGRAM'
+                   838           ?LINE   44
+                   839           PUBLIC  _MAT_Callback
+               R   840           ?SYMB   'MAT_Callback',_MAT_Callback,37,16
+                   841           ?SYMB   '',44,8,34
+                   842   _MAT_Callback   PROC    FAR
+                   843           ?SYMB   '',0140H,95,0
+0000 8880          844           MOV     [-R0],R8
+               R   845           ?SYMB   '',$,96,2
+0002 8860          846           MOV     [-R0],R6
+               R   847           ?SYMB   '',$,96,4
+                   848   ; Locals:
+                   849   ; 
+                   850   ; Statics:
+                   851   ; 
+                   852   ; CSEs:
+                   853   ;     datalen = R8
+                   854   ;     head = R12R13
+                   855   ;     head + datalen = R14R15
+                   856   ;     t = RL6
+                   857   ; 
+                   858           ?SYMB   'datalen',2,99,16
+                   859           ?SYMB   'head',3,98,274
+               R   860           ?SYMB   'R8',$,100,2
+                   861   ; me_at.c    45         char* head = RdBuffer.base+RdBuffer.head;
+                   862           ?LINE   45
+0004 E6000000  R   863           MOV     DPP0,#PAG _RdBuffer
+0008 F08C          864           MOV     R8,R12
+000A F2FC0000  R   865           MOV     R12,POF _RdBuffer
+000E F2FD0000  R   866           MOV     R13,POF (_RdBuffer+2)
+0012 02FC0000  R   867           ADD     R12,POF (_RdBuffer+4)
+               R   868           ?SYMB   'R12R13',$,100,3
+                   869           ?SYMB   't',1,98,2
+                   870   ; me_at.c    46         char t;
+                   871   ; me_at.c    47 
+                   872   ; me_at.c    48         if ( datalen > 0 )
+                   873           ?LINE   48
+0016 4880          874           CMP     R8,#00h
+0018 BD1C          875           JMPR    cc_SLE,_4
+                   876   ; me_at.c    49         {
+                   877   ; me_at.c    50                 t = head[datalen];
+                   878           ?LINE   50
+001A F0EC          879           MOV     R14,R12
+001C F0FD          880           MOV     R15,R13
+001E 00E8          881           ADD     R14,R8
+0020 DC4F          882           EXTP    R15,#01h
+0022 A9CE     1    883           MOVB    RL6,[R14]
+               R   884           ?SYMB   'RL6',$,100,1
+                   885   ; me_at.c    51                 head[datalen] = '\0';
+                   886           ?LINE   51
+0024 E102          887           MOVB    RL1,#00h
+0026 DC4F          888           EXTP    R15,#01h
+0028 B92E     1    889           MOVB    [R14],RL1
+                   890   ; me_at.c    52                 debugex_nonl( "\r\nME recieve: %s, datalen = %d", head, datalen
+                          );
+                   891           ?LINE   52
+002A 88C0          892           MOV     [-R0],R12
+               R   893           ?SYMB   '',$,96,6
+002C 88D0          894           MOV     [-R0],R13
+               R   895           ?SYMB   '',$,96,8
+002E 88E0          896           MOV     [-R0],R14
+               R   897           ?SYMB   '',$,96,10
+0030 88F0          898           MOV     [-R0],R15
+               R   899           ?SYMB   '',$,96,12
+0032 8880          900           MOV     [-R0],R8
+               R   901           ?SYMB   '',$,96,14
+0034 88D0          902           MOV     [-R0],R13
+               R   903           ?SYMB   '',$,96,16
+0036 88C0          904           MOV     [-R0],R12
+               R   905           ?SYMB   '',$,96,18
+0038 E6FC0000  R   906           MOV     R12,#POF _3
+               R   907           ?SYMB   '',$,102,3
+003C E6FD0000  R   908           MOV     R13,#PAG _3
+0040 DA000000  R   909           CALLS   SEG _debugex_nonl,_debugex_nonl
+0044 0806          910           ADD     R0,#06h
+               R   911           ?SYMB   '',$,96,12
+0046 98F0          912           MOV     R15,[R0+]
+               R   913           ?SYMB   '',$,96,10
+0048 98E0          914           MOV     R14,[R0+]
+               R   915           ?SYMB   '',$,96,8
+004A 98D0          916           MOV     R13,[R0+]
+               R   917           ?SYMB   '',$,96,6
+004C 98C0          918           MOV     R12,[R0+]
+               R   919           ?SYMB   '',$,96,4
+               R   920           ?SYMB   'R12R13',$,100,3
+                   921   ; me_at.c    53                 head[datalen] = t;
+                   922           ?LINE   53
+004E DC4F          923           EXTP    R15,#01h
+0050 B9CE     1    924           MOVB    [R14],RL6
+                   925   ; me_at.c    54         }
+                   926           ?LINE   54
+0052               927   _4:
+               R   928           ?SYMB   '',$,102,1
+                   929   ; me_at.c    55     
+                   930   ; me_at.c    56         mat_indication ( MAT_DATAIN, head, datalen );
+                   931           ?LINE   56
+0052 F06C          932           MOV     R6,R12
+0054 E01C          933           MOV     R12,#01h
+               R   934           ?SYMB   '',$,102,3
+               R   935           ?SYMB   '',$,102,3
+0056 F0ED          936           MOV     R14,R13
+0058 F0D6          937           MOV     R13,R6
+005A E6000000  R   938           MOV     DPP0,#PAG _mat_indication
+005E F0F8          939           MOV     R15,R8
+0060 F2F40000  R   940           MOV     R4,POF _mat_indication
+0064 F2F50000  R   941           MOV     R5,POF (_mat_indication+2)
+0068 DA000000  R   942           CALLS   SEG __icall,__icall
+                   943   ; me_at.c    57 
+                   944   ; me_at.c    58         RdBuffer.head += datalen;
+                   945           ?LINE   58
+006C E6000000  R   946           MOV     DPP0,#PAG _RdBuffer
+0070 CC00          947           NOP
+0072 F2F60000  R   948           MOV     R6,POF (_RdBuffer+4)
+0076 0068          949           ADD     R6,R8
+0078 F6F60000  R   950           MOV     POF (_RdBuffer+4),R6
+                   951   ; me_at.c    59 
+                   952   ; me_at.c    60         if ( RdBuffer.head >= RD_BUFSIZE)
+                   953           ?LINE   60
+007C 46F60010      954           CMP     R6,#01000h
+0080 CD02          955           JMPR    cc_SLT,_5
+                   956   ; me_at.c    61                 RdBuffer.head = 0;
+                   957           ?LINE   61
+0082 F68E0000  R   958           MOV     POF (_RdBuffer+4),ZEROS
+0086               959   _5:
+                   960   ; me_at.c    62 
+                   961   ; me_at.c    63         if ( datalen > 0 )
+                   962           ?LINE   63
+0086 4880          963           CMP     R8,#00h
+0088 BD07          964           JMPR    cc_SLE,_6
+                   965   ; me_at.c    64                 Handle_vatcRead( com_fd );
+                   966           ?LINE   64
+008A E6000000  R   967           MOV     DPP0,#PAG _com_fd
+008E CC00          968           NOP
+0090 F2FC0000  R   969           MOV     R12,POF _com_fd
+0094 DA00A000  R   970           CALLS   SEG _Handle_vatcRead,_Handle_vatcRead
+               R   971           ?SYMB   '',$,102,2
+0098               972   _6:
+                   973   ; me_at.c    65 
+                   974   ; me_at.c    66     return 0;
+                   975           ?LINE   66
+0098 E004          976           MOV     R4,#00h
+                   977   ; me_at.c    67 }
+                   978           ?LINE   67
+009A 9860          979           MOV     R6,[R0+]
+               R   980           ?SYMB   '',$,96,2
+009C 9880          981           MOV     R8,[R0+]
+               R   982           ?SYMB   '',$,96,0
+009E DB00          983           RETS
+                   984   _MAT_Callback   ENDP
+               R   985           ?SYMB   '',$,17,67
+                   986   ; me_at.c    68 
+                   987   ; me_at.c    69 int Handle_vatcRead ( VME_VATCCHANID ChanId )
+                   988   ; me_at.c    70 {
+                   989           ?LINE   70
+                   990           PUBLIC  _Handle_vatcRead
+               R   991           ?SYMB   'Handle_vatcRead',_Handle_vatcRead,37,16
+                   992           ?SYMB   '',70,8,34
+                   993   _Handle_vatcRead        PROC    FAR
+                   994           ?SYMB   '',03c0H,95,0
+00A0 8890          995           MOV     [-R0],R9
+               R   996           ?SYMB   '',$,96,2
+00A2 8880          997           MOV     [-R0],R8
+               R   998           ?SYMB   '',$,96,4
+00A4 8870          999           MOV     [-R0],R7
+               R  1000           ?SYMB   '',$,96,6
+00A6 8860         1001           MOV     [-R0],R6
+               R  1002           ?SYMB   '',$,96,8
+00A8 F07C         1003           MOV     R7,R12
+                  1004   ; Locals:
+                  1005   ; 
+                  1006   ; Statics:
+                  1007   ; 
+                  1008   ; CSEs:
+                  1009   ;     l = R8
+                  1010   ;     count = R9
+                  1011   ;     len = R6
+                  1012   ;     ChanId = R7
+                  1013   ; 
+                  1014           ?SYMB   'ChanId',4,99,563
+                  1015           ?SYMB   'count',3,98,542
+               R  1016           ?SYMB   'R7',$,100,4
+                  1017   ; me_at.c    71     vUINT16 count = VME_vatcGetReadBufferLength( ChanId );
+                  1018           ?LINE   71
+00AA DA000000  R  1019           CALLS   SEG _VME_vatcGetReadBufferLength,_VME_vatcGetReadBufferLength
+               R  1020           ?SYMB   'R9',$,100,3
+                  1021   ; me_at.c    72     
+                  1022   ; me_at.c    73 #if defined VME_DEBUG
+                  1023   ; me_at.c    74         debugex_nonl( "\r\n1RdBuffer.datalen = %d!", RdBuffer.datalen );
+                  1024           ?LINE   74
+00AE E6000000  R  1025           MOV     DPP0,#PAG _RdBuffer
+00B2 F094         1026           MOV     R9,R4
+00B4 F2F80000  R  1027           MOV     R8,POF (_RdBuffer+8)
+00B8 8880         1028           MOV     [-R0],R8
+               R  1029           ?SYMB   '',$,96,10
+00BA E6FC0000  R  1030           MOV     R12,#POF _7
+00BE E6FD0000  R  1031           MOV     R13,#PAG _7
+00C2 DA000000  R  1032           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1033           ?SYMB   '',$,96,8
+                  1034   ; me_at.c    75         debugex_nonl( "\r\nME Get Readbuffer Len = %d!", count );
+                  1035           ?LINE   75
+00C6 B890         1036           MOV     [R0],R9
+               R  1037           ?SYMB   '',$,96,10
+00C8 E6FC0000  R  1038           MOV     R12,#POF _8
+00CC E6FD0000  R  1039           MOV     R13,#PAG _8
+00D0 DA000000  R  1040           CALLS   SEG _debugex_nonl,_debugex_nonl
+00D4 0802         1041           ADD     R0,#02h
+               R  1042           ?SYMB   '',$,96,8
+                  1043   ; me_at.c    76 #endif
+                  1044   ; me_at.c    77 
+                  1045   ; me_at.c    78     while (count > 0)
+                  1046           ?LINE   78
+00D6 EA00C801  R  1047           JMPA    cc_UC,_21
+00DA              1048   _14:
+               R  1049           ?SYMB   '',$,9,80
+                  1050           ?SYMB   'len',2,98,560
+                  1051           ?SYMB   'l',1,98,560
+                  1052   ; me_at.c    79     {
+                  1053   ; me_at.c    80         vINT16 len, l;
+                  1054   ; me_at.c    81 
+                  1055   ; me_at.c    82         if (RdBuffer.datalen >= RD_BUFSIZE)
+                  1056           ?LINE   82
+00DA E6000000  R  1057           MOV     DPP0,#PAG _RdBuffer
+00DE CC00         1058           NOP
+00E0 F2F80000  R  1059           MOV     R8,POF (_RdBuffer+8)
+00E4 46F80010     1060           CMP     R8,#01000h
+00E8 CD0E         1061           JMPR    cc_SLT,_15
+                  1062   ; me_at.c    83         {
+                  1063   ; me_at.c    84             MAT_Reset( 0 );
+                  1064           ?LINE   84
+00EA E00C         1065           MOV     R12,#00h
+00EC DA001E04  R  1066           CALLS   SEG _MAT_Reset,_MAT_Reset
+               R  1067           ?SYMB   '',$,102,4
+               R  1068           ?SYMB   '',$,102,3
+                  1069   ; me_at.c    85                         RdBuffer.datalen = RdBuffer.head = RdBuffer.tail = 0;
+                  1070           ?LINE   85
+00F0 E6000000  R  1071           MOV     DPP0,#PAG _RdBuffer
+00F4 CC00         1072           NOP
+00F6 F68E0000  R  1073           MOV     POF (_RdBuffer+6),ZEROS
+00FA F68E0000  R  1074           MOV     POF (_RdBuffer+4),ZEROS
+00FE F68E0000  R  1075           MOV     POF (_RdBuffer+8),ZEROS
+                  1076   ; me_at.c    86             break;
+                  1077           ?LINE   86
+0102 EA00CE01  R  1078           JMPA    cc_UC,_24
+                  1079   ; me_at.c    87         }
+                  1080           ?LINE   87
+0106              1081   _15:
+               R  1082           ?SYMB   'R7',$,100,4
+               R  1083           ?SYMB   'R9',$,100,3
+                  1084   ; me_at.c    88 
+                  1085   ; me_at.c    89         if (RdBuffer.head > RdBuffer.tail)
+                  1086           ?LINE   89
+0106 E6000000  R  1087           MOV     DPP0,#PAG _RdBuffer
+010A CC00         1088           NOP
+010C F2F80000  R  1089           MOV     R8,POF (_RdBuffer+4)
+0110 42F80000  R  1090           CMP     R8,POF (_RdBuffer+6)
+0114 BD04         1091           JMPR    cc_SLE,_16
+                  1092   ; me_at.c    90           len = RdBuffer.head - RdBuffer.tail;
+                  1093           ?LINE   90
+0116 F068         1094           MOV     R6,R8
+0118 22F60000  R  1095           SUB     R6,POF (_RdBuffer+6)
+               R  1096           ?SYMB   'R6',$,100,2
+011C 0D06         1097           JMPR    cc_UC,_17
+011E              1098   _16:
+               R  1099           ?SYMB   '',$,102,2
+                  1100   ; me_at.c    91         else
+                  1101   ; me_at.c    92           len = RD_BUFSIZE - RdBuffer.tail;
+                  1102           ?LINE   92
+011E E6000000  R  1103           MOV     DPP0,#PAG _RdBuffer
+0122 E6F60010     1104           MOV     R6,#01000h
+0126 22F60000  R  1105           SUB     R6,POF (_RdBuffer+6)
+               R  1106           ?SYMB   'R6',$,100,2
+012A              1107   _17:
+                  1108   ; me_at.c    93 
+                  1109   ; me_at.c    94        if (len + RdBuffer.datalen > RD_BUFSIZE)
+                  1110           ?LINE   94
+012A E6000000  R  1111           MOV     DPP0,#PAG _RdBuffer
+012E F086         1112           MOV     R8,R6
+0130 02F80000  R  1113           ADD     R8,POF (_RdBuffer+8)
+0134 46F80010     1114           CMP     R8,#01000h
+0138 BD04         1115           JMPR    cc_SLE,_18
+                  1116   ; me_at.c    95            len = RD_BUFSIZE - RdBuffer.datalen;
+                  1117           ?LINE   95
+013A E6F60010     1118           MOV     R6,#01000h
+               R  1119           ?SYMB   '',$,102,2
+013E 22F60000  R  1120           SUB     R6,POF (_RdBuffer+8)
+               R  1121           ?SYMB   'R6',$,100,2
+0142              1122   _18:
+                  1123   ; me_at.c    96 
+                  1124   ; me_at.c    97 #if defined VME_DEBUG
+                  1125   ; me_at.c    98                 debugex_nonl( "\r\nME Want to Read %d Bytes!", len );
+                  1126           ?LINE   98
+0142 8860         1127           MOV     [-R0],R6
+               R  1128           ?SYMB   '',$,96,10
+0144 E6FC0000  R  1129           MOV     R12,#POF _9
+0148 E6FD0000  R  1130           MOV     R13,#PAG _9
+014C DA000000  R  1131           CALLS   SEG _debugex_nonl,_debugex_nonl
+0150 0802         1132           ADD     R0,#02h
+               R  1133           ?SYMB   '',$,96,8
+                  1134   ; me_at.c    99 #endif
+                  1135   ; me_at.c   100 
+                  1136   ; me_at.c   101        l =  VME_vatcRead( ChanId, RdBuffer.base+RdBuffer.tail, len);
+                  1137           ?LINE   101
+0152 E6000000  R  1138           MOV     DPP0,#PAG _RdBuffer
+0156 F0C7         1139           MOV     R12,R7
+0158 F2FD0000  R  1140           MOV     R13,POF _RdBuffer
+015C F2FE0000  R  1141           MOV     R14,POF (_RdBuffer+2)
+0160 02FD0000  R  1142           ADD     R13,POF (_RdBuffer+6)
+0164 F0F6         1143           MOV     R15,R6
+0166 DA000000  R  1144           CALLS   SEG _VME_vatcRead,_VME_vatcRead
+016A F084         1145           MOV     R8,R4
+               R  1146           ?SYMB   'R8',$,100,1
+                  1147   ; me_at.c   102 
+                  1148   ; me_at.c   103 #if defined VME_DEBUG
+                  1149   ; me_at.c   104                 debugex_nonl( "\r\nME Really Readed %d Bytes!", l );
+                  1150           ?LINE   104
+016C 8880         1151           MOV     [-R0],R8
+               R  1152           ?SYMB   '',$,96,10
+016E E6FC0000  R  1153           MOV     R12,#POF _10
+0172 E6FD0000  R  1154           MOV     R13,#PAG _10
+0176 DA000000  R  1155           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1156           ?SYMB   '',$,96,8
+                  1157   ; me_at.c   105 #endif
+                  1158   ; me_at.c   106        RdBuffer.tail += l;
+                  1159           ?LINE   106
+017A E6000000  R  1160           MOV     DPP0,#PAG _RdBuffer
+017E 0802         1161           ADD     R0,#02h
+0180 F2FC0000  R  1162           MOV     R12,POF (_RdBuffer+6)
+0184 00C8         1163           ADD     R12,R8
+0186 F6FC0000  R  1164           MOV     POF (_RdBuffer+6),R12
+                  1165   ; me_at.c   107        RdBuffer.datalen += l;
+                  1166           ?LINE   107
+018A F2FD0000  R  1167           MOV     R13,POF (_RdBuffer+8)
+018E 00D8         1168           ADD     R13,R8
+0190 F6FD0000  R  1169           MOV     POF (_RdBuffer+8),R13
+                  1170   ; me_at.c   108 
+                  1171   ; me_at.c   109        if (RdBuffer.tail >= RD_BUFSIZE)
+                  1172           ?LINE   109
+0194 46FC0010     1173           CMP     R12,#01000h
+0198 CD0B         1174           JMPR    cc_SLT,_19
+                  1175   ; me_at.c   110            {
+                  1176   ; me_at.c   111                         RdBuffer.tail = 0;
+                  1177           ?LINE   111
+019A F68E0000  R  1178           MOV     POF (_RdBuffer+6),ZEROS
+                  1179   ; me_at.c   112 #if defined VME_DEBUG
+                  1180   ; me_at.c   113                 debugex_nonl( "\r\nME Read tail Greater than BUFSIZE!", l );
+                  1181           ?LINE   113
+019E 8880         1182           MOV     [-R0],R8
+               R  1183           ?SYMB   '',$,96,10
+01A0 E6FC0000  R  1184           MOV     R12,#POF _11
+01A4 E6FD0000  R  1185           MOV     R13,#PAG _11
+01A8 DA000000  R  1186           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1187           ?SYMB   '',$,102,4
+               R  1188           ?SYMB   '',$,102,3
+               R  1189           ?SYMB   '',$,102,2
+               R  1190           ?SYMB   '',$,102,1
+01AC 0802         1191           ADD     R0,#02h
+               R  1192           ?SYMB   '',$,96,8
+                  1193   ; me_at.c   114 #endif
+                  1194   ; me_at.c   115                         goto NOTIFY_PROCESS;
+                  1195           ?LINE   115
+01AE 0D0F         1196           JMPR    cc_UC,_24
+                  1197   ; me_at.c   116            }
+                  1198           ?LINE   116
+01B0              1199   _19:
+               R  1200           ?SYMB   'R7',$,100,4
+               R  1201           ?SYMB   'R9',$,100,3
+               R  1202           ?SYMB   'R6',$,100,2
+               R  1203           ?SYMB   'R8',$,100,1
+                  1204   ; me_at.c   117 
+                  1205   ; me_at.c   118        // cannot read more, wait for next event
+                  1206   ; me_at.c   119        if (l != len)
+                  1207           ?LINE   119
+01B0 4086         1208           CMP     R8,R6
+01B2 2D09         1209           JMPR    cc_EQ,_20
+                  1210   ; me_at.c   120        {
+                  1211   ; me_at.c   121 #if defined VME_DEBUG
+                  1212   ; me_at.c   122                 debugex_nonl( "\r\nME No more data to read!", l );
+                  1213           ?LINE   122
+01B4 8880         1214           MOV     [-R0],R8
+               R  1215           ?SYMB   '',$,96,10
+01B6 E6FC0000  R  1216           MOV     R12,#POF _12
+01BA E6FD0000  R  1217           MOV     R13,#PAG _12
+01BE DA000000  R  1218           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1219           ?SYMB   '',$,102,4
+               R  1220           ?SYMB   '',$,102,3
+               R  1221           ?SYMB   '',$,102,2
+               R  1222           ?SYMB   '',$,102,1
+01C2 0802         1223           ADD     R0,#02h
+               R  1224           ?SYMB   '',$,96,8
+                  1225   ; me_at.c   123 #endif
+                  1226   ; me_at.c   124 
+                  1227   ; me_at.c   125            goto NOTIFY_PROCESS;
+                  1228           ?LINE   125
+01C4 0D04         1229           JMPR    cc_UC,_24
+                  1230   ; me_at.c   126        }
+                  1231           ?LINE   126
+01C6              1232   _20:
+               R  1233           ?SYMB   'R7',$,100,4
+               R  1234           ?SYMB   'R9',$,100,3
+               R  1235           ?SYMB   'R8',$,100,1
+                  1236   ; me_at.c   127 
+                  1237   ; me_at.c   128        count -= l;
+                  1238           ?LINE   128
+01C6 2098         1239           SUB     R9,R8
+               R  1240           ?SYMB   '',$,102,3
+               R  1241           ?SYMB   'R9',$,100,3
+               R  1242           ?SYMB   '',$,102,1
+               R  1243           ?SYMB   '',$,15,129
+                  1244           ?LINE   78
+01C8              1245   _21:
+01C8 4890         1246           CMP     R9,#00h
+01CA EAE0DA00  R  1247           JMPA    cc_UGT,_14
+                  1248   ; me_at.c   129     }
+                  1249   ; me_at.c   130 
+                  1250   ; me_at.c   131 NOTIFY_PROCESS:
+                  1251           ?LINE   131
+01CE              1252   _24:
+               R  1253           ?SYMB   '',$,102,4
+               R  1254           ?SYMB   '',$,102,3
+               R  1255           ?SYMB   'NOTIFY_PROCESS',_24,27,0
+                  1256   ; me_at.c   132 #if defined VME_DEBUG
+                  1257   ; me_at.c   133         debugex_nonl( "\r\n2RdBuffer.datalen = %d!", RdBuffer.datalen );
+                  1258           ?LINE   133
+01CE E6000000  R  1259           MOV     DPP0,#PAG _RdBuffer
+01D2 E6FC0000  R  1260           MOV     R12,#POF _13
+01D6 F2F80000  R  1261           MOV     R8,POF (_RdBuffer+8)
+01DA 8880         1262           MOV     [-R0],R8
+               R  1263           ?SYMB   '',$,96,10
+01DC E6FD0000  R  1264           MOV     R13,#PAG _13
+01E0 DA000000  R  1265           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1266           ?SYMB   '',$,96,8
+                  1267   ; me_at.c   134 #endif
+                  1268   ; me_at.c   135     count = RdBuffer.datalen;
+                  1269           ?LINE   135
+01E4 E6000000  R  1270           MOV     DPP0,#PAG _RdBuffer
+01E8 0802         1271           ADD     R0,#02h
+01EA F2F90000  R  1272           MOV     R9,POF (_RdBuffer+8)
+               R  1273           ?SYMB   'R9',$,100,3
+                  1274   ; me_at.c   136         RdBuffer.datalen = 0;
+                  1275           ?LINE   136
+01EE F68E0000  R  1276           MOV     POF (_RdBuffer+8),ZEROS
+                  1277   ; me_at.c   137         MAT_Callback( count );
+                  1278           ?LINE   137
+01F2 F0C9         1279           MOV     R12,R9
+01F4 DA000000  R  1280           CALLS   SEG _MAT_Callback,_MAT_Callback
+               R  1281           ?SYMB   '',$,102,3
+                  1282   ; me_at.c   138 
+                  1283   ; me_at.c   139     return 0;
+                  1284           ?LINE   139
+01F8 E004         1285           MOV     R4,#00h
+                  1286   ; me_at.c   140 }
+                  1287           ?LINE   140
+01FA 9860         1288           MOV     R6,[R0+]
+               R  1289           ?SYMB   '',$,96,6
+01FC 9870         1290           MOV     R7,[R0+]
+               R  1291           ?SYMB   '',$,96,4
+01FE 9880         1292           MOV     R8,[R0+]
+               R  1293           ?SYMB   '',$,96,2
+0200 9890         1294           MOV     R9,[R0+]
+               R  1295           ?SYMB   '',$,96,0
+0202 DB00         1296           RETS
+                  1297   _Handle_vatcRead        ENDP
+               R  1298           ?SYMB   '',$,17,140
+                  1299   ; me_at.c   141 
+                  1300   ; me_at.c   142 
+                  1301   ; me_at.c   143 int MAT_Init ( int mode, int para1, int para2, MAT_Indication indication )
+                  1302   ; me_at.c   144 {
+                  1303           ?LINE   144
+                  1304           PUBLIC  _MAT_Init
+               R  1305           ?SYMB   'MAT_Init',_MAT_Init,37,16
+                  1306           ?SYMB   '',144,8,34
+                  1307   _MAT_Init       PROC    FAR
+                  1308           ?SYMB   '',00H,95,0
+                  1309   ; Locals:
+                  1310   ; 
+                  1311   ; Statics:
+                  1312   ; 
+                  1313   ; CSEs:
+                  1314   ;     err = R12R13
+                  1315   ;     indication = offset 0
+                  1316   ; 
+                  1317           ?SYMB   'indication',2,99,265
+               R  1318           ?SYMB   '0',$,101,2
+                  1319   ; me_at.c   145         mat_indication = indication;
+                  1320           ?LINE   145
+0204 A8C0         1321           MOV     R12,[R0]
+0206 E6000000  R  1322           MOV     DPP0,#PAG _mat_indication
+020A D4D00200     1323           MOV     R13,[R0+#02H]
+020E F6FC0000  R  1324           MOV     POF _mat_indication,R12
+0212 F6FD0000  R  1325           MOV     POF (_mat_indication+2),R13
+                  1326   ; me_at.c   146 
+                  1327   ; me_at.c   147         com_fd = VME_vatcOpen( eVATC_ATC1 );//2 );
+                  1328           ?LINE   147
+0216 E00C         1329           MOV     R12,#00h
+0218 DA000000  R  1330           CALLS   SEG _VME_vatcOpen,_VME_vatcOpen
+021C E6000000  R  1331           MOV     DPP0,#PAG _com_fd
+0220 E6FC0000  R  1332           MOV     R12,#POF _25
+0224 F6F40000  R  1333           MOV     POF _com_fd,R4
+                  1334   ; me_at.c   148 
+                  1335   ; me_at.c   149 #if defined VME_DEBUG
+                  1336   ; me_at.c   150                 debugex_nonl( "\r\nME Open Channel %d!", com_fd );
+                  1337           ?LINE   150
+0228 8840         1338           MOV     [-R0],R4
+               R  1339           ?SYMB   '',$,96,2
+022A E6FD0000  R  1340           MOV     R13,#PAG _25
+022E DA000000  R  1341           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1342           ?SYMB   '',$,96,0
+                  1343   ; me_at.c   151 #endif
+                  1344   ; me_at.c   152 
+                  1345   ; me_at.c   153     if ( com_fd < 0 )
+                  1346           ?LINE   153
+0232 E6000000  R  1347           MOV     DPP0,#PAG _com_fd
+0236 0802         1348           ADD     R0,#02h
+0238 F2FC0000  R  1349           MOV     R12,POF _com_fd
+023C 48C0         1350           CMP     R12,#00h
+023E DD1C         1351           JMPR    cc_SGE,_40
+               R  1352           ?SYMB   '',$,9,155
+                  1353           ?SYMB   'err',1,98,559
+                  1354   ; me_at.c   154     {
+                  1355   ; me_at.c   155         vT_StatusCode err = VME_GetLastError();
+                  1356           ?LINE   155
+0240 DA000000  R  1357           CALLS   SEG _VME_GetLastError,_VME_GetLastError
+0244 F0C4         1358           MOV     R12,R4
+0246 F0D5         1359           MOV     R13,R5
+               R  1360           ?SYMB   'R12R13',$,100,1
+                  1361   ; me_at.c   156 #if defined VME_DEBUG
+                  1362   ; me_at.c   157             if ( err == VME_VATC_INVALID_CHANNEL )
+                  1363           ?LINE   157
+0248 F0EC         1364           MOV     R14,R12
+024A F0FD         1365           MOV     R15,R13
+024C 28E1         1366           SUB     R14,#01h
+024E 36FF0800     1367           SUBC    R15,#08h
+0252 3D07         1368           JMPR    cc_NE,_39
+                  1369   ; me_at.c   158                 debugex_nonl( "\r\nME Open Channel Invalid Channel!" );
+                  1370           ?LINE   158
+0254 E6FC0000  R  1371           MOV     R12,#POF _26
+               R  1372           ?SYMB   '',$,102,1
+0258 E6FD0000  R  1373           MOV     R13,#PAG _26
+025C DA000000  R  1374           CALLS   SEG _debugex_nonl,_debugex_nonl
+0260 0D32         1375           JMPR    cc_UC,_45
+0262              1376   _39:
+               R  1377           ?SYMB   'R12R13',$,100,1
+                  1378   ; me_at.c   159         else if ( err == VME_VATC_ERROR_ALREADY_OPEN )
+                  1379           ?LINE   159
+0262 28C4         1380           SUB     R12,#04h
+               R  1381           ?SYMB   '',$,102,1
+0264 36FD0800     1382           SUBC    R13,#08h
+0268 3D2E         1383           JMPR    cc_NE,_45
+                  1384   ; me_at.c   160                 debugex_nonl( "\r\nME Open Channel already open!" );
+                  1385           ?LINE   160
+026A E6FC0000  R  1386           MOV     R12,#POF _27
+026E E6FD0000  R  1387           MOV     R13,#PAG _27
+0272 DA000000  R  1388           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1389   ; me_at.c   161 #endif
+                  1390   ; me_at.c   162                 return -1;
+                  1391           ?LINE   162
+0276 0D27         1392           JMPR    cc_UC,_45
+               R  1393           ?SYMB   '',$,15,163
+                  1394   ; me_at.c   163     }
+                  1395           ?LINE   163
+0278              1396   _40:
+                  1397   ; me_at.c   164         RdBuffer.base = malloc( RD_BUFSIZE);
+                  1398           ?LINE   164
+0278 E6FC0010     1399           MOV     R12,#01000h
+027C DA000000  R  1400           CALLS   SEG _malloc,_malloc
+0280 E6000000  R  1401           MOV     DPP0,#PAG _RdBuffer
+0284 CC00         1402           NOP
+0286 F6F40000  R  1403           MOV     POF _RdBuffer,R4
+028A F6F50000  R  1404           MOV     POF (_RdBuffer+2),R5
+                  1405   ; me_at.c   165         if ( RdBuffer.base == NULL )
+                  1406           ?LINE   165
+028E 7045         1407           OR      R4,R5
+0290 3D07         1408           JMPR    cc_NZ,_41
+                  1409   ; me_at.c   166         {
+                  1410   ; me_at.c   167 #if defined VME_DEBUG
+                  1411   ; me_at.c   168                 debugex_nonl( "\r\nME Read Buffer Malloc Fail!" );
+                  1412           ?LINE   168
+0292 E6FC0000  R  1413           MOV     R12,#POF _28
+0296 E6FD0000  R  1414           MOV     R13,#PAG _28
+029A DA000000  R  1415           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1416   ; me_at.c   169 #endif
+                  1417   ; me_at.c   170                 return -1;
+                  1418           ?LINE   170
+029E 0D13         1419           JMPR    cc_UC,_45
+                  1420   ; me_at.c   171         }
+                  1421           ?LINE   171
+02A0              1422   _41:
+                  1423   ; me_at.c   172         
+                  1424   ; me_at.c   173         WrBuffer = malloc( WR_BUFSIZE );
+                  1425           ?LINE   173
+02A0 E6FC0010     1426           MOV     R12,#01000h
+02A4 DA000000  R  1427           CALLS   SEG _malloc,_malloc
+02A8 E6000000  R  1428           MOV     DPP0,#PAG _WrBuffer
+02AC CC00         1429           NOP
+02AE F6F40000  R  1430           MOV     POF _WrBuffer,R4
+02B2 F6F50000  R  1431           MOV     POF (_WrBuffer+2),R5
+                  1432   ; me_at.c   174         if ( WrBuffer == NULL )
+                  1433           ?LINE   174
+02B6 7045         1434           OR      R4,R5
+02B8 3D09         1435           JMPR    cc_NZ,_46
+                  1436   ; me_at.c   175         {
+                  1437   ; me_at.c   176 #if defined VME_DEBUG
+                  1438   ; me_at.c   177                 debugex_nonl( "\r\nME Write Buffer Malloc Fail!" );
+                  1439           ?LINE   177
+02BA E6FC0000  R  1440           MOV     R12,#POF _29
+02BE E6FD0000  R  1441           MOV     R13,#PAG _29
+02C2 DA000000  R  1442           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1443   ; me_at.c   178 #endif
+                  1444   ; me_at.c   179                 return -1;
+                  1445           ?LINE   179
+02C6              1446   _45:
+02C6 E6F4FFFF     1447           MOV     R4,#0FFFFh
+02CA DB00         1448           RETS
+                  1449   ; me_at.c   180         }
+                  1450           ?LINE   180
+02CC              1451   _46:
+                  1452   ; me_at.c   181         RdBuffer.head = 0;
+                  1453           ?LINE   181
+02CC E6000000  R  1454           MOV     DPP0,#PAG _RdBuffer
+02D0 E004         1455           MOV     R4,#00h
+02D2 F68E0000  R  1456           MOV     POF (_RdBuffer+4),ZEROS
+                  1457   ; me_at.c   182         RdBuffer.tail = 0;
+                  1458           ?LINE   182
+02D6 F68E0000  R  1459           MOV     POF (_RdBuffer+6),ZEROS
+                  1460   ; me_at.c   183         RdBuffer.datalen = 0;
+                  1461           ?LINE   183
+02DA F68E0000  R  1462           MOV     POF (_RdBuffer+8),ZEROS
+                  1463   ; me_at.c   184 
+                  1464   ; me_at.c   185     return 0;
+                  1465   ; me_at.c   186 }
+                  1466           ?LINE   186
+02DE              1467   _47:
+02DE DB00         1468           RETS
+                  1469   _MAT_Init       ENDP
+               R  1470           ?SYMB   '',$,17,186
+                  1471   ; me_at.c   187 
+                  1472   ; me_at.c   188 // transmit function, sends an event when all data are sent or an error occurre
+                         d
+                  1473   ; me_at.c   189 int Handle_vatcWrite( VME_VATCCHANID ChanId )
+                  1474   ; me_at.c   190 {
+                  1475           ?LINE   190
+                  1476           PUBLIC  _Handle_vatcWrite
+               R  1477           ?SYMB   'Handle_vatcWrite',_Handle_vatcWrite,37,16
+                  1478           ?SYMB   '',190,8,34
+                  1479   _Handle_vatcWrite       PROC    FAR
+                  1480           ?SYMB   '',0100H,95,0
+               R  1481           ?SYMB   '',$,96,2
+                  1482   ; Locals:
+                  1483   ; 
+                  1484   ; Statics:
+                  1485   ; 
+                  1486   ; CSEs:
+                  1487   ;     sent = R8
+                  1488   ;     err = R12R13
+                  1489   ;     ChanId = R12
+                  1490   ; 
+                  1491           ?SYMB   'ChanId',3,99,563
+                  1492           ?SYMB   'sent',2,98,560
+               R  1493           ?SYMB   'R12',$,100,3
+                  1494   ; me_at.c   191         // try to send all data
+                  1495   ; me_at.c   192         vINT16 sent = VME_vatcWrite( ChanId, SendPtr, toSend );
+                  1496           ?LINE   192
+02E0 E6000000  R  1497           MOV     DPP0,#PAG _SendPtr
+02E4 8880         1498           MOV     [-R0],R8
+02E6 F2FD0000  R  1499           MOV     R13,POF _SendPtr
+02EA F2FE0000  R  1500           MOV     R14,POF (_SendPtr+2)
+02EE F2FF0000  R  1501           MOV     R15,POF _toSend
+02F2 DA000000  R  1502           CALLS   SEG _VME_vatcWrite,_VME_vatcWrite
+               R  1503           ?SYMB   '',$,102,3
+02F6 F084         1504           MOV     R8,R4
+               R  1505           ?SYMB   'R8',$,100,2
+                  1506   ; me_at.c   193 
+                  1507   ; me_at.c   194         if (sent >= 0)
+                  1508           ?LINE   194
+02F8 4880         1509           CMP     R8,#00h
+02FA CD21         1510           JMPR    cc_SLT,_59
+                  1511   ; me_at.c   195         {
+                  1512   ; me_at.c   196                 // when not all data sent, a message will occur later
+                  1513   ; me_at.c   197                 bDataAvailToSend = (sent != toSend);
+                  1514           ?LINE   197
+02FC E6000000  R  1515           MOV     DPP0,#PAG _toSend
+0300 CC00         1516           NOP
+0302 42F80000  R  1517           CMP     R8,POF _toSend
+0306 2D02         1518           JMPR    cc_EQ,_64
+0308 E01C         1519           MOV     R12,#01h
+030A 0D01         1520           JMPR    cc_UC,_65
+030C              1521   _64:
+030C E00C         1522           MOV     R12,#00h
+030E              1523   _65:
+                  1524   ; me_at.c   198                 toSend -= sent; // prepare next transmission
+                  1525           ?LINE   198
+030E E6000000  R  1526           MOV     DPP0,#PAG _toSend
+0312 F6FC0000  R  1527           MOV     _bDataAvailToSend,R12
+0316 F2FD0000  R  1528           MOV     R13,POF _toSend
+031A 20D8         1529           SUB     R13,R8
+031C F6FD0000  R  1530           MOV     POF _toSend,R13
+                  1531   ; me_at.c   199                 SendPtr += sent;
+                  1532           ?LINE   199
+0320 F0E8         1533           MOV     R14,R8
+0322 F0FE         1534           MOV     R15,R14
+0324 BCFF         1535           ASHR    R15,#0Fh
+0326 04FE0000  R  1536           ADD     POF _SendPtr,R14
+                  1537   ; me_at.c   200 
+                  1538   ; me_at.c   201                 if (!bDataAvailToSend)
+                  1539   ; me_at.c   202                 {
+                  1540   ; me_at.c   203                         // all data are sent out, trigger ourself
+                  1541   ; me_at.c   204 #if defined VME_DEBUG
+                  1542   ; me_at.c   205                 debugex_nonl( "\r\nME Write %d bytes!", sent );
+                  1543   ; me_at.c   206 #endif
+                  1544   ; me_at.c   207                         return sent;
+                  1545   ; me_at.c   208                 }
+                  1546   ; me_at.c   209 #if defined VME_DEBUG
+                  1547   ; me_at.c   210                 debugex_nonl( "\r\nME Write %d bytes!", sent );
+                  1548           ?LINE   210
+032A 8880         1549           MOV     [-R0],R8
+               R  1550           ?SYMB   '',$,96,4
+032C E6FC0000  R  1551           MOV     R12,#POF _48
+0330 E6FD0000  R  1552           MOV     R13,#PAG _48
+0334 DA000000  R  1553           CALLS   SEG _debugex_nonl,_debugex_nonl
+0338 0802         1554           ADD     R0,#02h
+               R  1555           ?SYMB   '',$,96,2
+                  1556   ; me_at.c   211 #endif
+                  1557   ; me_at.c   212                 return sent;
+                  1558           ?LINE   212
+033A F048         1559           MOV     R4,R8
+033C 0D25         1560           JMPR    cc_UC,_63
+                  1561   ; me_at.c   213         }
+                  1562           ?LINE   213
+033E              1563   _59:
+               R  1564           ?SYMB   '',$,102,2
+               R  1565           ?SYMB   '',$,9,216
+                  1566           ?SYMB   'err',1,98,559
+                  1567   ; me_at.c   214         else
+                  1568   ; me_at.c   215         {
+                  1569   ; me_at.c   216         vT_StatusCode err = VME_GetLastError();
+                  1570           ?LINE   216
+033E DA000000  R  1571           CALLS   SEG _VME_GetLastError,_VME_GetLastError
+0342 F0C4         1572           MOV     R12,R4
+0344 F0D5         1573           MOV     R13,R5
+               R  1574           ?SYMB   'R12R13',$,100,1
+                  1575   ; me_at.c   217         bDataAvailToSend = FALSE;
+                  1576           ?LINE   217
+0346 F68E0000  R  1577           MOV     _bDataAvailToSend,ZEROS
+                  1578   ; me_at.c   218                 // error occurred! trigger ourself
+                  1579   ; me_at.c   219         
+                  1580   ; me_at.c   220 #if defined VME_DEBUG
+                  1581   ; me_at.c   221         if ( err == VME_VATC_INVALID_CHANNEL )
+                  1582           ?LINE   221
+034A F08C         1583           MOV     R8,R12
+034C F0ED         1584           MOV     R14,R13
+034E 2881         1585           SUB     R8,#01h
+0350 36FE0800     1586           SUBC    R14,#08h
+0354 3D07         1587           JMPR    cc_NE,_60
+                  1588   ; me_at.c   222             debugex_nonl( "\r\n VATC Write Invalid channel");
+                  1589           ?LINE   222
+0356 E6FC0000  R  1590           MOV     R12,#POF _49
+               R  1591           ?SYMB   '',$,102,1
+035A E6FD0000  R  1592           MOV     R13,#PAG _49
+035E DA000000  R  1593           CALLS   SEG _debugex_nonl,_debugex_nonl
+0362 0D0A         1594           JMPR    cc_UC,_62
+0364              1595   _60:
+               R  1596           ?SYMB   'R12R13',$,100,1
+                  1597   ; me_at.c   223         else if ( err == VME_VATC_TOO_MANY_DATA )
+                  1598           ?LINE   223
+0364 28C2         1599           SUB     R12,#02h
+               R  1600           ?SYMB   '',$,102,1
+0366 36FD0800     1601           SUBC    R13,#08h
+036A 3D06         1602           JMPR    cc_NE,_62
+                  1603   ; me_at.c   224             debugex_nonl( "\r\n VATC Write Too Many Data");
+                  1604           ?LINE   224
+036C E6FC0000  R  1605           MOV     R12,#POF _50
+0370 E6FD0000  R  1606           MOV     R13,#PAG _50
+0374 DA000000  R  1607           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1608   ; me_at.c   225                 debugex_nonl( "\r\nME Write ATC FAIL!" );
+                  1609           ?LINE   225
+0378              1610   _62:
+0378 E6FC0000  R  1611           MOV     R12,#POF _51
+037C E6FD0000  R  1612           MOV     R13,#PAG _51
+0380 DA000000  R  1613           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1614   ; me_at.c   226 #endif
+                  1615   ; me_at.c   227                 return -1;
+                  1616           ?LINE   227
+0384 E6F4FFFF     1617           MOV     R4,#0FFFFh
+               R  1618           ?SYMB   '',$,15,228
+                  1619   ; me_at.c   228         }
+                  1620   ; me_at.c   229 }
+                  1621           ?LINE   229
+0388              1622   _63:
+0388 9880         1623           MOV     R8,[R0+]
+               R  1624           ?SYMB   '',$,96,0
+038A DB00         1625           RETS
+                  1626   _Handle_vatcWrite       ENDP
+               R  1627           ?SYMB   '',$,17,229
+                  1628   ; me_at.c   230 
+                  1629   ; me_at.c   231 int MAT_Send ( int mode, void * pdata, int datalen )
+                  1630   ; me_at.c   232 {
+                  1631           ?LINE   232
+                  1632           PUBLIC  _MAT_Send
+               R  1633           ?SYMB   'MAT_Send',_MAT_Send,37,16
+                  1634           ?SYMB   '',232,8,34
+                  1635   _MAT_Send       PROC    FAR
+                  1636           ?SYMB   '',0340H,95,0
+038C 8890         1637           MOV     [-R0],R9
+               R  1638           ?SYMB   '',$,96,2
+038E 8880         1639           MOV     [-R0],R8
+               R  1640           ?SYMB   '',$,96,4
+0390 8860         1641           MOV     [-R0],R6
+               R  1642           ?SYMB   '',$,96,6
+0392 F08F         1643           MOV     R8,R15
+0394 F06E         1644           MOV     R6,R14
+0396 F09D         1645           MOV     R9,R13
+                  1646   ; Locals:
+                  1647   ; 
+                  1648   ; Statics:
+                  1649   ; 
+                  1650   ; CSEs:
+                  1651   ;     datalen = R8
+                  1652   ;     pdata = R9R6
+                  1653   ; 
+                  1654           ?SYMB   'pdata',1,99,277
+                  1655           ?SYMB   'datalen',2,99,16
+               R  1656           ?SYMB   'R8',$,100,2
+               R  1657           ?SYMB   'R9R6',$,100,1
+                  1658   ; me_at.c   233     if ( datalen == -1 )
+                  1659           ?LINE   233
+0398 46F8FFFF     1660           CMP     R8,#0FFFFh
+039C 3D05         1661           JMPR    cc_NE,_68
+                  1662   ; me_at.c   234         datalen = strlen( (char*)pdata );
+                  1663           ?LINE   234
+039E F0C9         1664           MOV     R12,R9
+03A0 F0D6         1665           MOV     R13,R6
+03A2 DA000000  R  1666           CALLS   SEG _strlen,_strlen
+               R  1667           ?SYMB   '',$,102,2
+03A6 F084         1668           MOV     R8,R4
+               R  1669           ?SYMB   'R8',$,100,2
+03A8              1670   _68:
+                  1671   ; me_at.c   235 
+                  1672   ; me_at.c   236     if (!bDataAvailToSend)
+                  1673           ?LINE   236
+03A8 F2FC0000  R  1674           MOV     R12,_bDataAvailToSend
+03AC 3D2C         1675           JMPR    cc_NZ,_69
+                  1676   ; me_at.c   237         {
+                  1677   ; me_at.c   238                 bDataAvailToSend = TRUE;
+                  1678           ?LINE   238
+03AE E01D         1679           MOV     R13,#01h
+03B0 F6FD0000  R  1680           MOV     _bDataAvailToSend,R13
+               R  1681           ?SYMB   '',$,96,8
+                  1682   ; me_at.c   239 
+                  1683   ; me_at.c   240                 memcpy( WrBuffer, pdata, datalen );
+                  1684           ?LINE   240
+03B4 E6000000  R  1685           MOV     DPP0,#PAG _WrBuffer
+03B8 8880         1686           MOV     [-R0],R8
+03BA F2FC0000  R  1687           MOV     R12,POF _WrBuffer
+03BE F2FD0000  R  1688           MOV     R13,POF (_WrBuffer+2)
+03C2 F0E9         1689           MOV     R14,R9
+03C4 F0F6         1690           MOV     R15,R6
+03C6 DA000000  R  1691           CALLS   SEG _memcpy,_memcpy
+               R  1692           ?SYMB   '',$,96,6
+                  1693   ; me_at.c   241                 SendPtr = WrBuffer;
+                  1694           ?LINE   241
+03CA E6000000  R  1695           MOV     DPP0,#PAG _WrBuffer
+03CE 0802         1696           ADD     R0,#02h
+03D0 F2FC0000  R  1697           MOV     R12,POF _WrBuffer
+03D4 F2FD0000  R  1698           MOV     R13,POF (_WrBuffer+2)
+03D8 F6FC0000  R  1699           MOV     POF _SendPtr,R12
+03DC F6FD0000  R  1700           MOV     POF (_SendPtr+2),R13
+                  1701   ; me_at.c   242                 toSend = datalen;
+                  1702           ?LINE   242
+03E0 F6F80000  R  1703           MOV     POF _toSend,R8
+                  1704   ; me_at.c   243 
+                  1705   ; me_at.c   244         debugex_nonl( "\r\nME Send: %s\r\n, datalen=%d", pdata, datalen );
+                  1706           ?LINE   244
+03E4 8880         1707           MOV     [-R0],R8
+               R  1708           ?SYMB   '',$,96,8
+03E6 8860         1709           MOV     [-R0],R6
+               R  1710           ?SYMB   '',$,96,10
+03E8 8890         1711           MOV     [-R0],R9
+               R  1712           ?SYMB   '',$,96,12
+03EA E6FC0000  R  1713           MOV     R12,#POF _66
+03EE E6FD0000  R  1714           MOV     R13,#PAG _66
+03F2 DA000000  R  1715           CALLS   SEG _debugex_nonl,_debugex_nonl
+               R  1716           ?SYMB   '',$,102,1
+               R  1717           ?SYMB   '',$,102,2
+               R  1718           ?SYMB   '',$,96,6
+                  1719   ; me_at.c   245                 return Handle_vatcWrite( com_fd );      // data will sent
+                  1720           ?LINE   245
+03F6 E6000000  R  1721           MOV     DPP0,#PAG _com_fd
+03FA 0806         1722           ADD     R0,#06h
+03FC F2FC0000  R  1723           MOV     R12,POF _com_fd
+0400 DA00E002  R  1724           CALLS   SEG _Handle_vatcWrite,_Handle_vatcWrite
+0404 0D08         1725           JMPR    cc_UC,_70
+                  1726   ; me_at.c   246         }
+                  1727           ?LINE   246
+0406              1728   _69:
+                  1729   ; me_at.c   247         else
+                  1730   ; me_at.c   248         {
+                  1731   ; me_at.c   249 #if defined VME_DEBUG
+                  1732   ; me_at.c   250                 debugex_nonl( "\r\nME No data avai to send!" );
+                  1733           ?LINE   250
+0406 E6FC0000  R  1734           MOV     R12,#POF _67
+040A E6FD0000  R  1735           MOV     R13,#PAG _67
+040E DA000000  R  1736           CALLS   SEG _debugex_nonl,_debugex_nonl
+                  1737   ; me_at.c   251 #endif
+                  1738   ; me_at.c   252                 return -1;
+                  1739           ?LINE   252
+0412 E6F4FFFF     1740           MOV     R4,#0FFFFh
+                  1741   ; me_at.c   253         }
+                  1742   ; me_at.c   254 }
+                  1743           ?LINE   254
+0416              1744   _70:
+0416 9860         1745           MOV     R6,[R0+]
+               R  1746           ?SYMB   '',$,96,4
+0418 9880         1747           MOV     R8,[R0+]
+               R  1748           ?SYMB   '',$,96,2
+041A 9890         1749           MOV     R9,[R0+]
+               R  1750           ?SYMB   '',$,96,0
+041C DB00         1751           RETS
+                  1752   _MAT_Send       ENDP
+               R  1753           ?SYMB   '',$,17,254
+                  1754   ; me_at.c   255 
+                  1755   ; me_at.c   256 
+                  1756   ; me_at.c   257 
+                  1757   ; me_at.c   258 int MAT_Reset ( int mode )
+                  1758   ; me_at.c   259 {
+                  1759           ?LINE   259
+                  1760           PUBLIC  _MAT_Reset
+               R  1761           ?SYMB   'MAT_Reset',_MAT_Reset,37,16
+                  1762           ?SYMB   '',259,8,34
+                  1763   _MAT_Reset      PROC    FAR
+                  1764           ?SYMB   '',00H,95,0
+                  1765   ; Locals:
+                  1766   ; 
+                  1767   ; Statics:
+                  1768   ; 
+                  1769   ; CSEs:
+                  1770   ; 
+                  1771   ; me_at.c   260     return 0;
+                  1772           ?LINE   260
+041E E004         1773           MOV     R4,#00h
+                  1774   ; me_at.c   261 }
+                  1775           ?LINE   261
+0420 DB00         1776           RETS
+                  1777   _MAT_Reset      ENDP
+               R  1778           ?SYMB   '',$,17,261
+                  1779   ; me_at.c   262 
+                  1780   ; me_at.c   263 vVOID vProcessVATC_Events(vT_EvtCode Event, vINT8 ChanId)
+                  1781   ; me_at.c   264 {
+                  1782           ?LINE   264
+                  1783           PUBLIC  _vProcessVATC_Events
+               R  1784           ?SYMB   'vProcessVATC_Events',_vProcessVATC_Events,37,553
+                  1785           ?SYMB   '',264,8,34
+                  1786   _vProcessVATC_Events    PROC    FAR
+                  1787           ?SYMB   '',00H,95,0
+0422 F01D         1788           MOV     R1,R13
+                  1789   ; Locals:
+                  1790   ; 
+                  1791   ; Statics:
+                  1792   ; 
+                  1793   ; CSEs:
+                  1794   ;     ChanId = RL1
+                  1795   ;     Event = R12
+                  1796   ; 
+                  1797           ?SYMB   'Event',2,99,546
+                  1798           ?SYMB   'ChanId',1,99,572
+               R  1799           ?SYMB   'R12',$,100,2
+               R  1800           ?SYMB   'RL1',$,100,1
+                  1801   ; me_at.c   265         switch( Event )
+                  1802           ?LINE   265
+0424 46FC0205     1803           CMP     R12,#0502h
+0428 2D0B         1804           JMPR    cc_EQ,_72
+042A 46FC0305     1805           CMP     R12,#0503h
+042E 3D0C         1806           JMPR    cc_NE,_75
+                  1807   ; me_at.c   266         {
+                  1808   ; me_at.c   267         case VME_EVT_VATC_RECEIVED_DATA_AVAIL:
+                  1809   ; me_at.c   268 
+                  1810   ; me_at.c   269                 Handle_vatcRead( ChanId );
+                  1811   ; me_at.c   270 
+                  1812   ; me_at.c   271                 break;
+                  1813   ; me_at.c   272 
+                  1814   ; me_at.c   273         case VME_EVT_VATC_WRITE_CALLBACK:
+                  1815           ?LINE   273
+0430              1816   _71:
+               R  1817           ?SYMB   '',$,102,2
+                  1818   ; me_at.c   274 
+                  1819   ; me_at.c   275                 if ( bDataAvailToSend )
+                  1820           ?LINE   275
+0430 F2FC0000  R  1821           MOV     R12,_bDataAvailToSend
+0434 2D09         1822           JMPR    cc_Z,_75
+                  1823   ; me_at.c   276                         Handle_vatcWrite( ChanId );
+                  1824           ?LINE   276
+0436 F011         1825           MOV     R1,R1
+               R  1826           ?SYMB   '',$,96,2
+               R  1827           ?SYMB   '',$,102,1
+               R  1828           ?SYMB   '',$,96,0
+0438 D02C         1829           MOVBS   R12,RL1
+043A DA00E002  R  1830           CALLS   SEG _Handle_vatcWrite,_Handle_vatcWrite
+                  1831   ; me_at.c   277 
+                  1832   ; me_at.c   278                 break;
+                  1833           ?LINE   278
+043E DB00         1834           RETS
+                  1835           ?LINE   267
+0440              1836   _72:
+               R  1837           ?SYMB   'RL1',$,100,1
+                  1838           ?LINE   269
+0440 F011         1839           MOV     R1,R1
+               R  1840           ?SYMB   '',$,96,2
+               R  1841           ?SYMB   '',$,102,1
+               R  1842           ?SYMB   '',$,96,0
+0442 D02C         1843           MOVBS   R12,RL1
+0444 DA00A000  R  1844           CALLS   SEG _Handle_vatcRead,_Handle_vatcRead
+                  1845   ; me_at.c   279 
+                  1846   ; me_at.c   280         default:
+                  1847   ; me_at.c   281                 break;
+                  1848   ; me_at.c   282         }
+                  1849   ; me_at.c   283 
+                  1850   ; me_at.c   284         return;
+                  1851   ; me_at.c   285 }
+                  1852           ?LINE   285
+0448              1853   _75:
+0448 DB00         1854           RETS
+                  1855   _vProcessVATC_Events    ENDP
+               R  1856           ?SYMB   '',$,17,285
+                  1857   ME_AT_4_PR      ENDS
+                  1858   
+                  1859   ME_AT_5_CO      SECTION DATA WORD PUBLIC 'CROM'
+0000 0D0A2056     1860   _49     DB      0Dh,0Ah,020h,056h,041h,054h,043h,020h,057h,072h
+0004 41544320    
+0008 5772        
+000A 69746520     1861           DB      069h,074h,065h,020h,049h,06Eh,076h,061h,06Ch,069h
+000E 496E7661    
+0012 6C69        
+0014 64206368     1862           DB      064h,020h,063h,068h,061h,06Eh,06Eh,065h,06Ch,00h
+0018 616E6E65    
+001C 6C00        
+001E 0D0A4D45     1863   _48     DB      0Dh,0Ah,04Dh,045h,020h,057h,072h,069h,074h,065h
+0022 20577269    
+0026 7465        
+0028 20256420     1864           DB      020h,025h,064h,020h,062h,079h,074h,065h,073h,021h
+002C 62797465    
+0030 7321        
+0032 00           1865           DB      00h
+0033 0D0A4D45     1866   _27     DB      0Dh,0Ah,04Dh,045h,020h,04Fh,070h,065h,06Eh,020h
+0037 204F7065    
+003B 6E20        
+003D 4368616E     1867           DB      043h,068h,061h,06Eh,06Eh,065h,06Ch,020h,061h,06Ch
+0041 6E656C20    
+0045 616C        
+0047 72656164     1868           DB      072h,065h,061h,064h,079h,020h,06Fh,070h,065h,06Eh
+004B 79206F70    
+004F 656E        
+0051 2100         1869           DB      021h,00h
+0053 0D0A3152     1870   _7      DB      0Dh,0Ah,031h,052h,064h,042h,075h,066h,066h,065h
+0057 64427566    
+005B 6665        
+005D 722E6461     1871           DB      072h,02Eh,064h,061h,074h,061h,06Ch,065h,06Eh,020h
+0061 74616C65    
+0065 6E20        
+0067 3D202564     1872           DB      03Dh,020h,025h,064h,021h,00h
+006B 2100        
+006D 0D0A4D45     1873   _12     DB      0Dh,0Ah,04Dh,045h,020h,04Eh,06Fh,020h,06Dh,06Fh
+0071 204E6F20    
+0075 6D6F        
+0077 72652064     1874           DB      072h,065h,020h,064h,061h,074h,061h,020h,074h,06Fh
+007B 61746120    
+007F 746F        
+0081 20726561     1875           DB      020h,072h,065h,061h,064h,021h,00h
+0085 642100      
+0088 0D0A4D45     1876   _28     DB      0Dh,0Ah,04Dh,045h,020h,052h,065h,061h,064h,020h
+008C 20526561    
+0090 6420        
+0092 42756666     1877           DB      042h,075h,066h,066h,065h,072h,020h,04Dh,061h,06Ch
+0096 6572204D    
+009A 616C        
+009C 6C6F6320     1878           DB      06Ch,06Fh,063h,020h,046h,061h,069h,06Ch,021h,00h
+00A0 4661696C    
+00A4 2100        
+00A6 0D0A4D45     1879   _25     DB      0Dh,0Ah,04Dh,045h,020h,04Fh,070h,065h,06Eh,020h
+00AA 204F7065    
+00AE 6E20        
+00B0 4368616E     1880           DB      043h,068h,061h,06Eh,06Eh,065h,06Ch,020h,025h,064h
+00B4 6E656C20    
+00B8 2564        
+00BA 2100         1881           DB      021h,00h
+00BC 0D0A4D45     1882   _11     DB      0Dh,0Ah,04Dh,045h,020h,052h,065h,061h,064h,020h
+00C0 20526561    
+00C4 6420        
+00C6 7461696C     1883           DB      074h,061h,069h,06Ch,020h,047h,072h,065h,061h,074h
+00CA 20477265    
+00CE 6174        
+00D0 65722074     1884           DB      065h,072h,020h,074h,068h,061h,06Eh,020h,042h,055h
+00D4 68616E20    
+00D8 4255        
+00DA 4653495A     1885           DB      046h,053h,049h,05Ah,045h,021h,00h
+00DE 452100      
+00E1 0D0A2056     1886   _50     DB      0Dh,0Ah,020h,056h,041h,054h,043h,020h,057h,072h
+00E5 41544320    
+00E9 5772        
+00EB 69746520     1887           DB      069h,074h,065h,020h,054h,06Fh,06Fh,020h,04Dh,061h
+00EF 546F6F20    
+00F3 4D61        
+00F5 6E792044     1888           DB      06Eh,079h,020h,044h,061h,074h,061h,00h
+00F9 61746100    
+00FD 0D0A4D45     1889   _9      DB      0Dh,0Ah,04Dh,045h,020h,057h,061h,06Eh,074h,020h
+0101 2057616E    
+0105 7420        
+0107 746F2052     1890           DB      074h,06Fh,020h,052h,065h,061h,064h,020h,025h,064h
+010B 65616420    
+010F 2564        
+0111 20427974     1891           DB      020h,042h,079h,074h,065h,073h,021h,00h
+0115 65732100    
+0119 0D0A4D45     1892   _29     DB      0Dh,0Ah,04Dh,045h,020h,057h,072h,069h,074h,065h
+011D 20577269    
+0121 7465        
+0123 20427566     1893           DB      020h,042h,075h,066h,066h,065h,072h,020h,04Dh,061h
+0127 66657220    
+012B 4D61        
+012D 6C6C6F63     1894           DB      06Ch,06Ch,06Fh,063h,020h,046h,061h,069h,06Ch,021h
+0131 20466169    
+0135 6C21        
+0137 00           1895           DB      00h
+0138 0D0A3252     1896   _13     DB      0Dh,0Ah,032h,052h,064h,042h,075h,066h,066h,065h
+013C 64427566    
+0140 6665        
+0142 722E6461     1897           DB      072h,02Eh,064h,061h,074h,061h,06Ch,065h,06Eh,020h
+0146 74616C65    
+014A 6E20        
+014C 3D202564     1898           DB      03Dh,020h,025h,064h,021h,00h
+0150 2100        
+0152 0D0A4D45     1899   _66     DB      0Dh,0Ah,04Dh,045h,020h,053h,065h,06Eh,064h,03Ah
+0156 2053656E    
+015A 643A        
+015C 2025730D     1900           DB      020h,025h,073h,0Dh,0Ah,02Ch,020h,064h,061h,074h
+0160 0A2C2064    
+0164 6174        
+0166 616C656E     1901           DB      061h,06Ch,065h,06Eh,03Dh,025h,064h,00h
+016A 3D256400    
+016E 0D0A4D45     1902   _3      DB      0Dh,0Ah,04Dh,045h,020h,072h,065h,063h,069h,065h
+0172 20726563    
+0176 6965        
+0178 76653A20     1903           DB      076h,065h,03Ah,020h,025h,073h,02Ch,020h,064h,061h
+017C 25732C20    
+0180 6461        
+0182 74616C65     1904           DB      074h,061h,06Ch,065h,06Eh,020h,03Dh,020h,025h,064h
+0186 6E203D20    
+018A 2564        
+018C 00           1905           DB      00h
+018D 0D0A4D45     1906   _26     DB      0Dh,0Ah,04Dh,045h,020h,04Fh,070h,065h,06Eh,020h
+0191 204F7065    
+0195 6E20        
+0197 4368616E     1907           DB      043h,068h,061h,06Eh,06Eh,065h,06Ch,020h,049h,06Eh
+019B 6E656C20    
+019F 496E        
+01A1 76616C69     1908           DB      076h,061h,06Ch,069h,064h,020h,043h,068h,061h,06Eh
+01A5 64204368    
+01A9 616E        
+01AB 6E656C21     1909           DB      06Eh,065h,06Ch,021h,00h
+01AF 00          
+01B0 0D0A4D45     1910   _8      DB      0Dh,0Ah,04Dh,045h,020h,047h,065h,074h,020h,052h
+01B4 20476574    
+01B8 2052        
+01BA 65616462     1911           DB      065h,061h,064h,062h,075h,066h,066h,065h,072h,020h
+01BE 75666665    
+01C2 7220        
+01C4 4C656E20     1912           DB      04Ch,065h,06Eh,020h,03Dh,020h,025h,064h,021h,00h
+01C8 3D202564    
+01CC 2100        
+01CE 0D0A4D45     1913   _67     DB      0Dh,0Ah,04Dh,045h,020h,04Eh,06Fh,020h,064h,061h
+01D2 204E6F20    
+01D6 6461        
+01D8 74612061     1914           DB      074h,061h,020h,061h,076h,061h,069h,020h,074h,06Fh
+01DC 76616920    
+01E0 746F        
+01E2 2073656E     1915           DB      020h,073h,065h,06Eh,064h,021h,00h
+01E6 642100      
+01E9 0D0A4D45     1916   _51     DB      0Dh,0Ah,04Dh,045h,020h,057h,072h,069h,074h,065h
+01ED 20577269    
+01F1 7465        
+01F3 20415443     1917           DB      020h,041h,054h,043h,020h,046h,041h,049h,04Ch,021h
+01F7 20464149    
+01FB 4C21        
+01FD 00           1918           DB      00h
+01FE 0D0A4D45     1919   _10     DB      0Dh,0Ah,04Dh,045h,020h,052h,065h,061h,06Ch,06Ch
+0202 20526561    
+0206 6C6C        
+0208 79205265     1920           DB      079h,020h,052h,065h,061h,064h,065h,064h,020h,025h
+020C 61646564    
+0210 2025        
+0212 64204279     1921           DB      064h,020h,042h,079h,074h,065h,073h,021h,00h
+0216 74657321    
+021A 00          
+                  1922   ME_AT_5_CO      ENDS
+                  1923   
+                  1924   C166_INIT       SECTION DATA WORD GLOBAL 'CINITROM'
+0000 0600         1925           DW      06h
+0002 00000000  R  1926           DPPTR   ME_AT_ID_NB_ENTRY,ME_AT_IR_NB_ENTRY
+0006 00000000    
+000A 0200         1927           DW      02h
+                  1928   C166_INIT       ENDS
+                  1929   
+                  1930   C166_BSS        SECTION DATA WORD GLOBAL 'CINITROM'
+0000 0600         1931           DW      06h
+0002 00000000  R  1932           DPPTR   ME_AT_1_FB_ENTRY
+0006 1A00         1933           DW      01Ah
+                  1934   C166_BSS        ENDS
+                  1935   
+                  1936           EXTERN  _malloc:FAR
+                  1937           EXTERN  _strlen:FAR
+                  1938           EXTERN  _VME_GetLastError:FAR
+                  1939           EXTERN  _VME_vatcOpen:FAR
+                  1940           EXTERN  _VME_vatcGetReadBufferLength:FAR
+                  1941           EXTERN  _debugex_nonl:FAR
+                  1942           EXTERN  _VME_vatcRead:FAR
+                  1943           EXTERN  _VME_vatcWrite:FAR
+                  1944           EXTERN  _memcpy:FAR
+                  1945           EXTERN  __icall:FAR
+                  1946   C166_DGROUP     DGROUP  ME_AT_ID_NB
+                  1947           REGDEF  R0-R15
+                  1948           END
+
+total errors: 0, warnings: 0
+

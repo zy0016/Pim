@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: me - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YZHAO~1.POL\LOCALS~1\Temp\RSP698.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I ".\include" /I "..\vmesdk\include" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\SMARTPHONE\VME\vonga_1\me\me_at.c"
+"D:\SMARTPHONE\VME\vonga_1\me\me_comn.c"
+"D:\SMARTPHONE\VME\vonga_1\me\me_func.c"
+"D:\SMARTPHONE\VME\vonga_1\me\me_init.c"
+"D:\SMARTPHONE\VME\vonga_1\me\me_wnd.c"
+"D:\SMARTPHONE\VME\vonga_1\me\smspdu.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YZHAO~1.POL\LOCALS~1\Temp\RSP698.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\lib\me.lib"  .\Debug\me_at.obj .\Debug\me_comn.obj .\Debug\me_func.obj .\Debug\me_init.obj .\Debug\me_wnd.obj .\Debug\smspdu.obj "
+<h3>Output Window</h3>
+Compiling...
+me_at.c
+me_comn.c
+me_func.c
+d:\smartphone\vme\vonga_1\me\me_func.c(913) : warning C4018: '>' : signed/unsigned mismatch
+me_init.c
+me_wnd.c
+smspdu.c
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+me.lib - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
